@@ -31,11 +31,6 @@
     "window.menuBarVisibility": "hidden",
     "window.enableMenuBarMnemonics": false,
 
-    // "symbols.files.associations": {
-    //     "*.asm": "assembly",
-    //     "*.txt": "txt"
-    // },
-
     "extensions.ignoreRecommendations": true,
     "java.jdt.ls.java.home": "/home/pieers/opt/jdk-23",
     "java.project.referencedLibraries": [

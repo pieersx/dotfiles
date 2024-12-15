@@ -1,0 +1,87 @@
+{
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.minimap.enabled": false,
+
+    "editor.fontFamily": "'Iosevka', 'Cascadia Code'",
+    "editor.fontSize": 18,
+    "editor.fontLigatures": true,
+
+    "editor.mouseWheelZoom": true,
+    "terminal.integrated.mouseWheelZoom": true,
+    "editor.wordWrap": "on",
+    "files.trimFinalNewlines": true,
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "workbench.startupEditor": "none",
+
+    "explorer.sortOrder": "default",
+    "explorer.autoReveal": false,
+    "editor.cursorBlinking": "expand",
+    "editor.linkedEditing": true,
+    "editor.cursorSmoothCaretAnimation": "on",
+    "oneDarkPro.editorTheme": "One Dark Pro Darker",
+    "oneDarkPro.vivid": true,
+    "oneDarkPro.italic": true,
+    "oneDarkPro.bold": true,
+    "workbench.iconTheme": "symbols",
+    "window.menuBarVisibility": "hidden",
+    "window.enableMenuBarMnemonics": false,
+
+    "extensions.ignoreRecommendations": true,
+    "java.project.referencedLibraries": [
+        "C:\\Users\\USUARIO\\opt\\javafx-sdk-23\\lib\\*.jar"
+    ],
+    "liveServer.settings.donotShowInfoMsg": true,
+    "window.confirmSaveUntitledWorkspace": false,
+    "redhat.telemetry.enabled": false,
+    "tabnine.experimentalAutoImports": true,
+    "editor.cursorStyle": "block",
+    "magit.forge-enabled": true,
+    "editor.renderLineHighlight": "none",
+    "git.autofetch": true,
+    "tabnine.codeLensEnabled": false,
+    "[java]": {
+        "editor.defaultFormatter": "redhat.java"
+    },
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "workbench.tree.indent": 18,
+    "workbench.editor.empty.hint": "hidden",
+    "workbench.editor.showTabs": "single",
+
+    /** ------------ Breadcrumbs Configurations ------------ **/
+    "breadcrumbs.enabled": false,
+    "breadcrumbs.symbolPath": "on",
+    "breadcrumbs.filePath": "off",
+    "workbench.editorLargeFileConfirmation": 10024,
+
+    "editor.guides.indentation": true,
+    "editor.scrollbar.horizontal": "hidden",
+
+    /** ------------ Terminal Configurations ------------ **/
+    "terminal.integrated.fontFamily": "'Iosevka Nerd Font'",
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "terminal.integrated.cursorStyle": "underline",
+    "terminal.integrated.cursorBlinking": true,
+
+    "workbench.panel.showLabels": false,
+    "workbench.productIconTheme": "fluent-icons",
+    "workbench.colorTheme": "One Dark Pro Darker",
+
+    "editor.fontWeight": 450,
+
+    /** ------------ Additional Configurations ------------ **/
+    "vscode_custom_css.imports": [
+        "file:///C:/Users/USUARIO/Programming/vscode-custom/style.css"
+        // "file:///Users/USUARIO/.vscode/vscode_custom/script.js"
+    ],
+    "workbench.sideBar.location": "right",
+    "workbench.editorAssociations": {
+        "*.pdf": "pdf.preview"
+    },
+    "codesnap.containerPadding": "0em",
+    "workbench.layoutControl.enabled": false,
+    "terminal.integrated.fontSize": 17
+}
