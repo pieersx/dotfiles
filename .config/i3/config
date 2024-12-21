@@ -1,0 +1,456 @@
+# Este archivo ha sido generado automáticamente por i3-config-wizard(1).
+# No se sobrescribirá, así que edítelo como desee.
+#
+# Si cambias la distribución de tu teclado en algún momento, elimina
+# este archivo y vuelva a ejecutar i3-config-wizard(1).
+
+# -- ve al final para ver la combinación de colores -- #
+
+set $mod Mod4
+
+# archivo de configuración i3 (v4)
+#
+# ¡Consulte https://i3wm.org/docs/userguide.html para obtener una referencia completa!
+
+# Use pactl to adjust volume in PulseAudio.
+set $refresh_i3status killall -SIGUSR1 i3status
+
+bindsym $mod+F2 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+
+bindsym $mod+F1 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+
+bindsym $mod+m exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+
+# bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+
+# -- gaps
+gaps inner 4px
+smart_gaps on
+
+# -------------------------------------
+# --------- Program launcher ----------
+# -------------------------------------
+#           ( dmenu & rofi )
+
+# A more modern dmenu replacement is rofi:
+# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
+# There also is i3-dmenu-desktop which only displays applications shipping a
+# .desktop file. It is a wrapper around dmenu, so you need that installed.
+# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+# start dmenu (a program launcher)
+# bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/launcher.sh
+bindsym $mod+Shift+v exec --no-startup-id ~/.config/rofi/greenclip.sh
+# emojis with rofi
+bindsym $mod+Shift+e exec --no-startup-id ~/.config/rofi/emojis.sh
+
+# -------------------------------------
+# ------------ Workspaces -------------
+# -------------------------------------
+
+# workspace_auto_back_and_forth yes
+bindsym $mod+b workspace back_and_forth
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1  "1:   "
+set $ws2  "2:   "
+set $ws3  "3:   "
+set $ws4  "4:   "
+set $ws5  "5:   "
+set $ws6  "6:    "
+set $ws7  "7:    "
+set $ws8  "8:   "
+set $ws9  "9:   "
+set $ws10 "etc"
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+workspace $ws1 gaps inner 0
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1;
+bindsym $mod+Shift+2 move container to workspace $ws2;
+bindsym $mod+Shift+3 move container to workspace $ws3;
+bindsym $mod+Shift+4 move container to workspace $ws4;
+bindsym $mod+Shift+5 move container to workspace $ws5;
+bindsym $mod+Shift+6 move container to workspace $ws6;
+bindsym $mod+Shift+7 move container to workspace $ws7;
+bindsym $mod+Shift+8 move container to workspace $ws8;
+bindsym $mod+Shift+9 move container to workspace $ws9;
+bindsym $mod+Shift+0 move container to workspace $ws10;
+
+# Navigate between workspaces (love this one)
+bindsym $mod+Control+Left  workspace prev
+bindsym $mod+Control+Right workspace next
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+x exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# Tip: to see class name of a window, run `xprop` and click on the window.
+# class name is in WM_CLASS(STRING) property (the second string)
+
+
+# -------------------------------------
+# --------- Window management ---------
+# -------------------------------------
+
+default_border normal 1
+default_floating_border normal 2
+# for_window [class = "^.*"] border pixel 0
+# for_window [all] title_window_icon padding 1 px
+for_window [all] title_format "%title"
+# for_window [all] title_format "<small>%title | %class</small>"
+title_align left
+#hide_edge_borders smart
+#smart_borders on
+
+# Avoid scrolling on tabs
+bindsym --border button4 nop
+bindsym --border button5 nop
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# change focus
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+Left  move left  50 px
+bindsym $mod+Shift+Down  move down  50 px
+bindsym $mod+Shift+Up    move up    50 px
+bindsym $mod+Shift+Right move right 50 px
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+k layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# ---- Scratchpads ----
+# https://i3wm.org/docs/userguide.html#_scratchpad
+bindsym $mod+Shift+s move scratchpad
+bindsym $mod+s scratchpad show
+# See Applications to see scratchpad shortcuts
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child<
+
+# ---- Modes ----
+# resize window (you can also use the mouse for that)
+bindsym $mod+r mode "resize"
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height  5 px or 5 ppt
+        bindsym Up resize shrink height  5 px or 5 ppt
+        bindsym Right resize grow width  5 px or 5 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+Control+m mode "window modifiers [s]ticky [b]order [i]con [g]aps"
+mode "window modifiers [s]ticky [b]order [i]con [g]aps" {
+    bindsym s sticky            toggle, mode "default"
+    bindsym b border            toggle, mode "default"
+    bindsym i title_window_icon toggle, mode "default"
+    bindsym g gaps inner all    toggle 2, mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# -------------------------------------
+# ---------- Applications -------------
+# -------------------------------------
+
+# start a terminal
+bindsym $mod+Return exec kitty
+
+# -- Sreenshots
+
+# -- with flameshot (even more powerful) 'sudo apt install flameshot' --
+bindsym --release Print            exec --no-startup-id flameshot gui \
+    --path /tmp/ss --clipboard
+
+bindsym --release shift+Print      exec --no-startup-id flameshot gui \
+    --path ~/Pictures/Screenshots --clipboard
+
+bindsym --release $mod+shift+Print exec --no-startup-id flameshot gui \
+    --path /tmp/ss --delay 2500 --clipboard
+
+# -- with scrot (more powerful) 'sudo apt install scrot' --
+#        (Print) screenshot to ~/Pictures/Screenshotstalla se guarda en /tmp/ss y
+# bindsym --release Shift+Print\
+#     exec --no-startup-id "mkdir -p ~/Pictures/Screenshots;\
+#     scrot --select --border --freeze '%Y:%m:%d:%H:%M:%S.png'\
+#     -e 'mv $f ~/Pictures/Screenshots &&\
+#     xclip -selection clipboard -t image/png -i ~/Pictures/Screenshots/$f'"
+
+# ---- with import (from imagemagick tools suite) ----
+# bindsym --release Print\
+   # exec "f=$(date +%Y-%m-%d_%H-%M-%S);\
+   # import $ss_path/$f.png &&\
+   # xclip -selection clipboard -t image/png -i $ss_path/$f.png"
+
+# -- Screen zoom with https://github.com/tsoding/boomer
+bindsym $mod+z exec --no-startup-id boomer
+
+# Window capture
+
+for_window [class="discord"]            border none, floating enable, resize set 1600 900, move position center
+for_window [class="Lxappearance"]       border none, floating enable, resize set 1600 900, move position center
+for_window [class="Nvidia-settings"]    border none, floating enable, resize set 1600 900, move position center
+for_window [class="stacer"]             border none, floating enable, resize set 1600 900, move position center
+for_window [class="pds.exe"]            border none, floating enable, resize set 1600 900, move position center
+for_window [class="Gthumb"]             border none, floating enable, resize set 1600 900, move position center
+for_window [class="gnome-calculator"]   floating enable
+for_window [class="pentablet"]          floating enable
+for_window [class="Pqiv"]               floating enable
+for_window [title="calc"]               floating enable
+for_window [class="sorthem"]            floating enable
+for_window [class="XTerm"]              border none
+for_window [class="Google-chrome"]      border none
+for_window [class="libreoffice"]        border none
+for_window [class="Soffice"]        	border none
+for_window [class="Chromium"]           border none
+for_window [class="firefox"]           	border none
+for_window [class="vscodium"]           border none
+for_window [class="Pqiv"]               border none
+for_window [class="obs"]                border none
+for_window [class="vlc"]                border none
+for_window [class="Trello Desktop"]     border none
+for_window [class="org.gnome.Nautilus"] border none
+for_window [class="Pcmanfm"]            border none
+for_window [class="VirtualBox"]         border none
+for_window [class="Sakura"]             border none
+for_window [class="SQLite"]             border none
+for_window [class="jetbrains-idea-ce"]  border none
+for_window [class="Arandr"]  		border none
+for_window [class="GParted"]  		border none
+#for_window [class="GNU Octave"]  	border none
+for_window [class="DBeaver"]		border none
+for_window [class="emu8086.exe"]	border none
+for_window [class="kitty"]              border none, title_format "%class"
+for_window [class="Code"]               border none, title_format "Visual Studio Code"
+for_window [class="Emacs"]              border none, title_format "%class"
+for_window [class="Zathura"]            border none, title_format "%class"
+for_window [class="MuPDF"]              border none, title_format "%class"
+for_window [class="^.*App$"]       	floating enable
+for_window [class="^.*Main$"]       	floating enable
+for_window [class="^.*Octave$"]       	border none, floating enable
+
+for_window [class="Com.github.xournalpp.xournalpp"]	border none
+for_window [class="Xdg-desktop-portal-gtk"]		border none
+for_window [class="com-sun-tools-javac-launcher-Main"]  floating enable
+for_window [class="Polkit-mate-authentication-agent-1"] border none, floating enable, move position center
+for_window [class="com.oracle.javafx.scenebuilder.app.SceneBuilderApp"] border none
+
+for_window [window_role="task_dialog"]  floating enable; border none
+for_window [window_role="Preferences"]  floating enable; border none
+for_window [window_role="pop-up"]       floating enable; border none
+for_window [window_type="dialog"]       floating enable; border none
+for_window [window_role="bubble"]       floating enable; border none
+for_window [window_type="menu"]         floating enable; border none
+
+
+# for_window [class="^.*"]                floating enable
+# for_window [title="floating"]           floating toggle
+# for_window [floating]                   border none
+
+# Layout tabbed for workspace 1, this may be annoying for others
+# but it's very useful for me
+# for_window [workspace="1"]               layout tabbed
+# for_window [workspace="1" class="kitty"] floating enable
+
+# For applications that I often use with scratchpad features
+# See Window management > scratchpad
+bindsym $mod+n [class="Leafpad"] scratchpad show
+bindsym $mod+t [class="kitty"]   scratchpad show
+
+bindsym $mod+Shift+m mode "pets: [t]ux [w]aifu [n]eko [g]ato [u]bunchu"
+mode "pets: [t]ux [w]aifu [n]eko [g]ato [u]bunchu" {
+    bindsym t exec --no-startup-id pqiv --transparent-background -i ~/.config/i3/pets/tux.png, mode "default"
+    bindsym w exec --no-startup-id pqiv --transparent-background -i ~/.config/i3/pets/waifu.png, mode "default"
+    bindsym n exec --no-startup-id pqiv --transparent-background -i ~/.config/i3/pets/neko.png, mode "default"
+    bindsym g exec --no-startup-id pqiv --transparent-background -i ~/.config/i3/pets/gato.png, mode "default"
+    bindsym u exec --no-startup-id pqiv --transparent-background -i ~/.config/i3/pets/ubunchu.png, mode "default"
+
+    bindsym Escape mode "default"
+    bindsym Escape mode "default"
+}
+
+# -----------------------------------------
+# ------- Bar config & Color theme --------
+# -----------------------------------------
+
+# Toggle bar view
+# bindsym $mod+m bar mode toggle
+
+font pango:Iosevka Nerd Font 11.5
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+
+set $black #000000
+set $dark  #1a1a1a
+set $gray1 #2f2f2f
+set $gray2 #393939
+set $gray3 #888888
+set $white #E5E5E5
+
+set $main #285577
+
+set $urgent    #a65757
+set $winborder #415157
+
+# class                 border  bground text    indicator win_border
+client.focused          #4C7899 #285577 #ffffff #2E9EF4   #285577
+client.focused_inactive #333333 #5F676A #ffffff #484E50   #5F676A
+client.unfocused        $black  #222222 #888888 $gray1    $dark
+client.urgent           $urgent $urgent $white  $urgent   $urgent
+client.placeholder      $black  $dark   $white  $black    $dark
+client.background       #222222
+
+
+set $barcolor    #4C7899
+set $modecolor   #1e1e26
+set $statuscolor #e4e4e4
+set $sepcolor    #666666
+
+bar {
+    colors {
+        background $black
+        statusline $statuscolor
+        separator  $sepcolor
+
+        # criteria         border      background  text
+        focused_workspace  $barcolor   $barcolor   $black
+        inactive_workspace $black      $black      $gray3
+        urgent_workspace   $urgent     $urgent     $black
+        binding_mode       $modecolor  $modecolor  $white
+
+        #active_workspace  active workspace button for multiple outputs
+    }
+    status_command i3status -c ~/.config/i3status/config
+    font pango:Iosevka Nerd Font 11.5
+    workspace_min_width 35
+    padding 1px 5px 1px 1px
+    strip_workspace_numbers no
+    workspace_buttons yes
+    position bottom
+    # Avoid switching workspaces when scrolling
+    bindsym button4 nop
+    bindsym button5 nop
+}
+
+# -----------------------------------------
+# ---------------- System -----------------
+# -----------------------------------------
+
+# Acciones como bloquear la pantalla, suspender, reiniciar y apagar el sistema
+# for logout, use "i3-msg exit"
+bindsym $mod+Control+Delete mode "[l]ock [s]uspend [r]eboot [p]oweroff"
+
+mode "[l]ock [s]uspend [r]eboot [p]oweroff" {
+    bindsym l exec --no-startup-id i3lock -i Wallpapers/8.png, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym p exec --no-startup-id systemctl poweroff, mode "default"
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+bindsym $mod+x exec /home/$USER/.config/scripts/lock
+
+
+# -----------------------------------------
+# ----------- Startup programs ------------
+# -----------------------------------------
+
+# greenclip
+exec_always --no-startup-id greenclip daemon
+
+# Start XDG autostart .desktop files using dex. See also
+# https://wiki.archlinux.org/index.php/XDG_Autostart
+exec --no-startup-id dex --autostart --environment i3
+
+# The combination of xss-lock, nm-applet and pactl is a popular choice, so
+# they are included here as an example. Modify as you see fit.
+
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock --i3lock --nofork
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
+
+# choose your wallpaper here (!)
+# sudo apt install feh
+exec_always --no-startup-id feh --bg-fill ~/Wallpapers/8.png
+
+# set keyboard layout
+exec --no-startup-id setxkbmap -layout us,de -option grp:ctrl_alt_shift_toggle
+# for english keyboard
+# exec setxkbmap -layout us,de -option grp:alt_shift_toggle
+
+# exec --no-startup-id compton --config ~/.config/.compton.conf
+# exec --no-startup-id picom --config ~/.config/picom/picom.conf
+
+# polkitd
+exec --no-startup-id /usr/libexec/polkit-mate-authentication-agent-1
+
+# Config Monitor Arandr
+exec --no-startup-id ~/.screenlayout/config_monitor.sh
+
+# exec --no-startup-id
+exec --no-startup-id "notify-send \
+    --urgency=low \
+    --expire-time=10000 \
+    --icon=/home/pieers/.config/i3/pets/tux.png \
+    'Welcome usuario Pieers"
