@@ -57,7 +57,7 @@ export GITIN_VIMKEYS=false
 # alias lla='ls -lha'
 # alias la='ls -a'
 # alias cat='batcat --theme=TwoDark'
-alias dots="/usr/bin/git --work-tree=$HOME --git-dir=$HOME/.dotfiles"
+# alias dots="/usr/bin/git --work-tree=$HOME --git-dir=$HOME/.dotfiles"
 alias gitin='gitin status'
 alias grep='grep --color=always'
 alias gc='git commit -v'
@@ -247,4 +247,5 @@ export PATH="/bin/scripts/:$PATH"
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-alias dotfiles=/usr/bin/git --work-tree=$HOME --git-dir=$HOME/.dotfiles
+
+alias dotfiles='/usr/bin/git --work-tree=$HOME --git-dir=$HOME/.dotfiles'
