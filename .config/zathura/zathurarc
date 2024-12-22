@@ -1,0 +1,5 @@
+# color blanco y negro al abrir zathura
+set recolor
+
+# navegador predeterminado
+set sandbox none
