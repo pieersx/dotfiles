@@ -1,0 +1,62 @@
+{
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.minimap.enabled": false,
+
+    "editor.fontFamily": "Iosevka Nerd Font",
+    "editor.fontSize": 18,
+    "editor.fontLigatures": true,
+
+    "editor.mouseWheelZoom": true,
+    "editor.wordWrap": "on",
+    "files.trimFinalNewlines": true,
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "workbench.startupEditor": "none",
+
+    "explorer.sortOrder": "default",
+    "explorer.autoReveal": false,
+
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.cursorBlinking": "expand",
+    "editor.linkedEditing": true,
+    "editor.cursorSmoothCaretAnimation": "on",
+
+    "workbench.colorTheme": "One Dark Pro Darker",
+    "oneDarkPro.editorTheme": "One Dark Pro Darker",
+    "oneDarkPro.vivid": true,
+    "oneDarkPro.italic": true,
+    "oneDarkPro.bold": true,
+    "workbench.productIconTheme": "fluent-icons",
+    "workbench.iconTheme": "symbols",
+    "window.menuBarVisibility": "hidden",
+    "window.enableMenuBarMnemonics": false,
+
+    "extensions.ignoreRecommendations": true,
+    "java.jdt.ls.java.home": "/home/pieers/opt/jdk-23",
+    "java.project.referencedLibraries": [
+        "/home/pieers/opt/javafx-sdk-23/lib/**/*.jar"
+    ],
+    "terminal.integrated.fontFamily": "Iosevka Nerd Font",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "window.confirmSaveUntitledWorkspace": false,
+    "redhat.telemetry.enabled": false,
+    "tabnine.experimentalAutoImports": true,
+    "terminal.integrated.fontSize": 20,
+    "editor.cursorStyle": "block",
+    "magit.forge-enabled": true,
+    "breadcrumbs.enabled": false,
+    "tabnine.codeLensEnabled": false,
+    "latex-workshop.view.pdf.invert": 1,
+    "emacs-mcx.emacsLikeTab": true,
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 4,
+    "explorer.confirmDragAndDrop": false,
+    "editor.renderLineHighlight": "none",
+    "editor.stickyScroll.enabled": false,
+    "workbench.sideBar.location": "right",
+    "workbench.activityBar.location": "top",
+    "window.commandCenter": false
+}

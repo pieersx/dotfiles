@@ -1,0 +1,46 @@
+[
+    // Duplicar linea
+    {
+        "key": "ctrl+,",
+        "command": "editor.action.duplicateSelection"
+    },
+    {
+        "key": "ctrl+,",
+        "command": "-workbench.action.openSettings"
+    },
+    // Extension vs-emacs-tab
+    {
+        "key": "ctrl+tab",
+        "command": "emacs-tab.reindentCurrentLine",
+        "when": "editorTextFocus"
+    },
+    // Abrir panel de configuraciones
+    {
+        "key": "alt+,",
+        "command": "workbench.action.openSettings"
+    },
+    // Extension File Browser
+    {
+        "key": "ctrl+x ctrl+f",
+        "command": "file-browser.open"
+    },
+    // Abrir panel de comandos
+    {
+        "key": "alt+e",
+        "command": "workbench.action.showCommands"
+    },
+    {
+        "key": "f1",
+        "command": "-workbench.action.showCommands"
+    },
+    {
+        "key": "alt+x",
+        "command": "-workbench.action.showCommands",
+        "when": "!config.emacs-mcx.useMetaPrefixMacCmd"
+    },
+    {
+        "key": "alt+x",
+        "command": "-workbench.action.showCommands",
+        "when": "config.emacs-mcx.useMetaPrefixMacCmd"
+    }
+]
