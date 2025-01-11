@@ -8,7 +8,6 @@
         "key": "ctrl+,",
         "command": "-workbench.action.openSettings"
     },
-    // Extension vs-emacs-tab
     {
         "key": "ctrl+tab",
         "command": "emacs-tab.reindentCurrentLine",
