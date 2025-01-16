@@ -1,62 +1,187 @@
 {
+    /** ------------ Configuración de confianza y archivos ------------ **/
     "security.workspace.trust.untrustedFiles": "open",
-    "editor.minimap.enabled": false,
-
-    "editor.fontFamily": "Iosevka Nerd Font",
-    "editor.fontSize": 18,
-    "editor.fontLigatures": true,
-
-    "editor.mouseWheelZoom": true,
-    "editor.wordWrap": "on",
     "files.trimFinalNewlines": true,
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
-    "workbench.startupEditor": "none",
+    "window.confirmSaveUntitledWorkspace": false,
 
-    "explorer.sortOrder": "default",
-    "explorer.autoReveal": false,
+    /** ------------ Configuración del editor ------------ **/
+    "editor.minimap.enabled": false,
+    "editor.fontFamily": "Iosevka Nerd Font",
+    "editor.fontSize": 20,
+    "editor.fontLigatures": true,
+    "editor.fontWeight": 500,
 
-    "editor.multiCursorModifier": "ctrlCmd",
-    "editor.cursorBlinking": "expand",
-    "editor.linkedEditing": true,
+    "editor.mouseWheelZoom": true,
+    "editor.wordWrap": "on",
+
+    "editor.cursorStyle": "block",
     "editor.cursorSmoothCaretAnimation": "on",
+    "editor.cursorBlinking": "smooth",
+    "editor.renderLineHighlight": "none",
 
-    "workbench.colorTheme": "One Dark Pro Darker",
-    "oneDarkPro.editorTheme": "One Dark Pro Darker",
-    "oneDarkPro.vivid": true,
-    "oneDarkPro.italic": true,
-    "oneDarkPro.bold": true,
-    "workbench.productIconTheme": "fluent-icons",
+    "editor.linkedEditing": true,
+    "editor.guides.indentation": true,
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.verticalScrollbarSize": 0,
+    "editor.scrollbar.vertical": "hidden",
+    "editor.multiCursorModifier": "ctrlCmd",
+
+    /** ------------ Configuración de inicio y apariencia ------------ **/
+    "workbench.startupEditor": "none",
     "workbench.iconTheme": "symbols",
     "window.menuBarVisibility": "hidden",
     "window.enableMenuBarMnemonics": false,
 
-    "extensions.ignoreRecommendations": true,
-    "java.jdt.ls.java.home": "/home/pieers/opt/jdk-23",
-    "java.project.referencedLibraries": [
-        "/home/pieers/opt/javafx-sdk-23/lib/**/*.jar"
-    ],
-    "terminal.integrated.fontFamily": "Iosevka Nerd Font",
-    "liveServer.settings.donotShowInfoMsg": true,
-    "window.confirmSaveUntitledWorkspace": false,
-    "redhat.telemetry.enabled": false,
-    "tabnine.experimentalAutoImports": true,
-    "terminal.integrated.fontSize": 20,
-    "editor.cursorStyle": "block",
-    "magit.forge-enabled": true,
-    "breadcrumbs.enabled": false,
-    "tabnine.codeLensEnabled": false,
-    "latex-workshop.view.pdf.invert": 1,
-    "emacs-mcx.emacsLikeTab": true,
-    "emmet.includeLanguages": {
-        "javascript": "javascriptreact"
-    },
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 4,
-    "explorer.confirmDragAndDrop": false,
-    "editor.renderLineHighlight": "none",
-    "editor.stickyScroll.enabled": false,
+    "workbench.colorTheme": "One Dark Pro Darker",
+    "workbench.productIconTheme": "fluent-icons",
     "workbench.sideBar.location": "right",
-    "workbench.activityBar.location": "top",
-    "window.commandCenter": false
+
+    "workbench.editor.showTabs": "single",
+    "extensions.ignoreRecommendations": true,
+    "workbench.editorLargeFileConfirmation": 10024,
+    "workbench.tree.indent": 18,
+    "workbench.editor.empty.hint": "hidden",
+
+    "workbench.tree.renderIndentGuides": "none",
+
+    /** ------------ Configuración del explorador ------------ **/
+    "explorer.sortOrder": "foldersNestsFiles",
+    "explorer.autoReveal": false,
+    "explorer.confirmDelete": false,
+
+    /** ------------ Configuración de terminal ------------ **/
+    "terminal.integrated.fontFamily": "'Iosevka Nerd Font'",
+    "terminal.integrated.fontSize": 20,
+    "terminal.integrated.fontWeight": "800",
+    "terminal.integrated.cursorStyle": "block",
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "terminal.integrated.mouseWheelZoom": true,
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.sendKeybindingsToShell": true,
+    "terminal.integrated.splitCwd": "workspaceRoot",
+
+    /** ------------ Configuración de Live Server ------------ **/
+    "liveServer.settings.port": 6969,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "liveServer.settings.CustomBrowser": "chrome",
+
+    /** ------------ Configuración de Breadcrumbs ------------ **/
+    "breadcrumbs.enabled": false,
+    "breadcrumbs.symbolPath": "on",
+    "breadcrumbs.filePath": "off",
+
+    /** ------------ Configuración adicional ------------ **/
+    // Habilita la carga de CSS personalizado para vscode
+    "vscode_custom_css.imports": [
+        "file:///home/pieers/Documentos/custom.css"
+        // "file:///Users/Pieers/Documentos/custom.js"
+    ],
+    "workbench.layoutControl.enabled": false,
+
+    /** ------------ Configuración de Prettier ------------ **/
+    // Define el formateador predeterminado para archivos JavaScript.
+    "prettier.singleQuote": true,
+    "prettier.semi": false,
+    "prettier.trailingComma": "none",
+    "prettier.tabWidth": 2,
+    "prettier.useTabs": false,
+    "prettier.bracketSpacing": true,
+    "prettier.arrowParens": "always",
+    "prettier.endOfLine": "lf",
+    // "prettier.printWidth": 80,
+    "prettier.quoteProps": "as-needed",
+    "prettier.jsxSingleQuote": true,
+    "prettier.proseWrap": "preserve",
+    "prettier.htmlWhitespaceSensitivity": "css",
+    "prettier.embeddedLanguageFormatting": "auto",
+    "prettier.vueIndentScriptAndStyle": true,
+    "prettier.ignorePath": ".prettierignore",
+
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2
+    },
+
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2
+    },
+    "emmet.triggerExpansionOnTab": true,
+    "html.validate.scripts": true,
+    "html.validate.styles": true,
+    "css.validate": true,
+
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2
+    },
+
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+
+    /** ------------ Configuración de Emmet ------------ **/
+    "emmet.includeLanguages": {
+        "html": "html",
+        "javascript": "javascriptreact",
+        "vue-html": "html",
+        "plaintext": "pug"
+    },
+    "emmet.showExpandedAbbreviation": "always", // Mostrar sugerencias de Emmet
+    "emmet.syntaxProfiles": {
+        "javascript": "jsx"
+    },
+
+    /** ------------ Configuración de IntelliSense y Snippets ------------ **/
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": true
+    },
+    "editor.snippetSuggestions": "top", // Mostrar snippets primero
+    "editor.suggest.showKeywords": true, // Mostrar sugerencias de palabras clave
+    "editor.suggest.showSnippets": true, // Mostrar snippets personalizados
+
+    /** ------------ Configuración de Extensiones Útiles ------------ **/
+    // ESLint
+    "eslint.format.enable": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+
+    // Tailwind CSS
+    "tailwindCSS.emmetCompletions": true,
+    "tailwindCSS.includeLanguages": {
+        "javascript": "html",
+        "typescript": "html"
+    },
+
+    /** ------------ Configuración adicional para temas ------------ **/
+    // Activa negritas en el tema One Dark Pro.
+    "oneDarkPro.bold": true,
+    "oneDarkPro.vivid": true,
+    "workbench.panel.showLabels": false,
+
+    /** ------------ Configuración Error Lens ------------ **/
+    "errorLens.messageBackgroundMode": "message",
+    "errorLens.fontWeight": "800",
+    "errorLens.fontStyleItalic": true,
+    "errorLens.gutterIconSet": "borderless",
+    "errorLens.gutterIconsEnabled": true,
+
+    /** ------------ Configuración Edamagit ------------ **/
+    "magit.forge-enabled": true,
+
+    /** ------------ Configuración Import Cost ------------ **/
+    "importCost.fontStyle": "italic",
+    "importCost.showCalculatingDecoration": true,
+    "importCost.bundleSizeColoring": "compressed",
+
+    "git.autofetch": true,
 }
