@@ -9,13 +9,14 @@ error_symbol = "[➜ ](red)"
 vicmd_symbol = "[➜ ](green)"
 
 [directory]
+format = '  [$path]($style)[$read_only]($read_only_style) '
 read_only = " 󰌾"
 truncation_length = 4
 truncation_symbol = '~/'
 style = "bold bright-cyan"
 
 [c]
-symbol = "  "
+symbol = " "
 format = 'via [$symbol($version(-$name) )]($style)'
 commands = [ [ 'clang', '--version' ] ]
 
@@ -29,7 +30,7 @@ symbol = " "
 tag_symbol = '  '
 
 [git_state]
-format = '[\($state( $progress_current of $progress_total)\)]($style) '
+format = '[\($state( $progress_current of $progress_total)\)2]($style) '
 cherry_pick = '[🍒 PICKING](bold red)'
 
 [git_metrics]
@@ -63,12 +64,6 @@ symbol = "  "
 
 [nodejs]
 symbol = " "
-
-[os]
-disabled = false
-
-[os.symbols]
-Debian = "  "
 
 [rust]
 symbol = " "
