@@ -1,0 +1,135 @@
+Nombre
+-----------------------------------------------------------------------------------------------------------------------
+NVM for Windows 1.2.1
+7-Zip 24.09 (x64)
+FxSound
+Git
+Aplicaciones de Microsoft 365 para ÔÇª ARP\Machine\X64\O365ProPlusRetail - ÔÇª 16.0.18324.20194
+Riot Vanguard
+MiniTool Partition Wizard Free 12.9
+Oh My Posh
+Oh My Posh
+Oracle VirtualBox 7.1.6
+Revo Uninstaller 2.5.7
+NVIDIA Controlador de gr├íficos 566.ÔÇª ARP\Machine\X64\{B2FE1952-0186-46C3-ÔÇª 566.36
+Aplicación de NVIDIA 11.0.1.189
+NVIDIA Software del sistema PhysX 9ÔÇª ARP\Machine\X64\{B2FE1952-0186-46C3-ÔÇª 9.23.1019
+NVIDIA FrameView SDK 1.4.10624.3503ÔÇª ARP\Machine\X64\{B2FE1952-0186-46C3-ÔÇª 1.4.10624.35034762
+NVIDIA Controlador de audio HD 1.4.ÔÇª ARP\Machine\X64\{B2FE1952-0186-46C3-ÔÇª 1.4.2.6
+WezTerm version 20240203-110809-504ÔÇª wez.wezterm
+Flameshot
+starship
+AMD Chipset Software
+Advanced SystemCare
+Driver Booster 12
+EasyTune
+EasyTuneEngineService
+SIV
+@BIOS
+APP Center
+Microsoft Edge
+Microsoft Visual C++ 2008 RedistribÔÇª ARP\Machine\X86\{1F1C2DFC-2D24-3E06-ÔÇª 9.0.30729.4148
+Microsoft Visual C++ 2012 RedistribÔÇª Microsoft.VCRedist.2012.x86
+Microsoft Visual C++ 2015-2022 RediÔÇª Microsoft.VCRedist.2015+.x64
+Realtek Ethernet Controller Driver
+Microsoft Visual C++ 2008 RedistribÔÇª ARP\Machine\X86\{9A25302D-30C0-39D9-ÔÇª 9.0.30729
+Realtek Audio Driver
+RGB Fusion
+Microsoft Visual C++ 2012 RedistribÔÇª Microsoft.VCRedist.2012.x64
+Microsoft Visual C++ 2015-2022 RediÔÇª Microsoft.VCRedist.2015+.x86
+Discord
+fastfetch
+Flow Launcher
+Google Chrome Dev
+Wget
+Riot Client
+League of Legends
+Xournal++
+fzf
+Microsoft Visual Studio Code (User)
+UniGetUI
+Rufus
+QuickLook
+TranslucentTB
+WhatsApp
+Microsoft Clipchamp
+AV1 Video Extension
+AVC Encoder Video Extension
+Mejoras de compatibilidad de aplicaÔÇª MSIX\Microsoft.ApplicationCompatibilÔÇª 1.2411.16.0
+Noticias
+B├║squeda web de Microsoft Bing
+MSN El Tiempo
+Copilot
+Instalador de aplicación
+Xbox
+Obtener ayuda
+HEIF Image Extensions
+Extensiones de v├¡deo HEVC del fabriÔÇª MSIX\Microsoft.HEVCVideoExtension_2.ÔÇª 2.2.9.0
+Paquete de experiencia local en espÔÇª MSIX\Microsoft.LanguageExperiencePacÔÇª 26100.36.46.0
+Extensión de v├¡deo MPEG-2
+Microsoft Edge
+Microsoft 365 Copilot
+Solitaire & Casual Games
+Notas r├ípidas de Microsoft
+Microsoft .Net Native Framework PacÔÇª MSIX\Microsoft.NET.Native.Framework.ÔÇª 2.2.29512.0
+Microsoft .Net Native Framework PacÔÇª MSIX\Microsoft.NET.Native.Framework.ÔÇª 2.2.29512.0
+Microsoft .Net Native Runtime PackaÔÇª MSIX\Microsoft.NET.Native.Runtime.2.ÔÇª 2.2.28604.0
+Microsoft .Net Native Runtime PackaÔÇª MSIX\Microsoft.NET.Native.Runtime.2.ÔÇª 2.2.28604.0
+OfficePushNotificationsUtility
+Outlook for Windows
+Paint
+Power Automate
+PowerShell
+Raw Image Extension
+Herramienta Recortes
+Seguridad de Windows
+Microsoft Engagement Framework
+Microsoft Engagement Framework
+Host de la experiencia de Store
+Microsoft To Do
+Microsoft.UI.Xaml.2.7
+Microsoft.UI.Xaml.2.7
+Microsoft.UI.Xaml.2.8
+Microsoft.UI.Xaml.2.8
+Microsoft Visual C++ 2015 UWP DesktÔÇª Microsoft.VCLibs.Desktop.14
+Microsoft Visual C++ 2015 UWP DesktÔÇª Microsoft.VCLibs.Desktop.14
+Microsoft Visual C++ 2015 UWP RuntiÔÇª MSIX\Microsoft.VCLibs.140.00_14.0.33ÔÇª 14.0.33519.0
+Microsoft Visual C++ 2015 UWP RuntiÔÇª MSIX\Microsoft.VCLibs.140.00_14.0.33ÔÇª 14.0.33519.0
+VP9 Video Extensions
+Extensiones de multimedia web
+Webp Image Extensions
+Widgets Platform Runtime
+Windows App Runtime DDLM 5001.311.2ÔÇª MSIX\Microsoft.WinAppRuntime.DDLM.50ÔÇª 5001.311.2039.0
+Windows App Runtime DDLM 5001.311.2ÔÇª MSIX\Microsoft.WinAppRuntime.DDLM.50ÔÇª 5001.311.2039.0
+Dev Home (Preview)
+Fotos de Microsoft
+Reloj de Windows
+WindowsAppRuntime.1.4
+WindowsAppRuntime.1.4
+WindowsAppRuntime.1.5
+WindowsAppRuntime.1.5
+WindowsAppRuntime.1.5
+WindowsAppRuntime.1.6
+WindowsAppRuntime.1.6
+WindowsAppRuntime.1.6
+Calculadora de Windows
+C├ímara de Windows
+Bloc de notas de Windows
+Grabadora de sonidos de Windows
+Microsoft Store
+Terminal Windows
+Windows Package Manager Source (winÔÇª MSIX\Microsoft.Winget.Source_2025.12ÔÇª 2025.127.1811.24
+Xbox TCUI
+Game Bar
+Xbox Identity Provider
+Game Speech Window
+Enlace Móvil
+Reproductor multimedia de Windows
+Asistencia r├ípida
+WinAppRuntime.Main.1.5
+WinAppRuntime.Singleton
+Windows Web Experience Pack
+Host de experiencia entre dispositiÔÇª MSIX\MicrosoftWindows.CrossDevice_1.ÔÇª 1.24121.37.0
+NVIDIA Control Panel
+Realtek Audio Control
+Debian

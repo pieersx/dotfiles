@@ -1,0 +1,141 @@
+{
+    /** ------------ Configuración de confianza y archivos ------------ **/
+    "security.workspace.trust.untrustedFiles": "open",
+    "files.trimFinalNewlines": true,
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "window.confirmSaveUntitledWorkspace": false,
+
+    /** ------------ Configuración del editor ------------ **/
+    "editor.minimap.enabled": false,
+    "editor.fontFamily": "Iosevka Nerd Font",
+    "editor.fontSize": 20,
+    "editor.fontLigatures": true,
+    "editor.fontWeight": 450,
+
+    "editor.mouseWheelZoom": true,
+    "editor.wordWrap": "on",
+
+    "editor.cursorStyle": "block",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.cursorBlinking": "smooth",
+    "editor.renderLineHighlight": "none",
+
+    "editor.linkedEditing": true,
+    "editor.guides.indentation": true,
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.verticalScrollbarSize": 0,
+    "editor.scrollbar.vertical": "hidden",
+    "editor.multiCursorModifier": "ctrlCmd",
+
+    /** ------------ Configuración de inicio y apariencia ------------ **/
+    "workbench.startupEditor": "none",
+    "workbench.iconTheme": "symbols",
+    "window.menuBarVisibility": "hidden",
+    "window.enableMenuBarMnemonics": false,
+
+    "workbench.colorTheme": "One Dark Pro Darker",
+    "workbench.productIconTheme": "fluent-icons",
+    "workbench.sideBar.location": "right",
+
+    "workbench.editor.showTabs": "single",
+    "extensions.ignoreRecommendations": true,
+    "workbench.editorLargeFileConfirmation": 10024,
+    "workbench.tree.indent": 18,
+    "workbench.editor.empty.hint": "hidden",
+
+    /** ------------ Configuración del explorador ------------ **/
+    "explorer.sortOrder": "default",
+    "explorer.autoReveal": false,
+    "explorer.confirmDelete": false,
+
+    /** ------------ Configuración de terminal ------------ **/
+    "terminal.integrated.fontFamily": "Iosevka Nerd Font",
+    "terminal.integrated.fontLigatures": true,
+    "terminal.integrated.fontSize": 20,
+    "terminal.integrated.fontWeight": 800,
+    "terminal.integrated.cursorStyle": "block",
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "terminal.integrated.mouseWheelZoom": true,
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.smoothScrolling": true,
+    "terminal.integrated.stickyScroll.enabled": true,
+    "terminal.integrated.sendKeybindingsToShell": true,
+
+    /** ------------ Configuración de Live Server ------------ **/
+    "liveServer.settings.donotShowInfoMsg": true,
+
+    /** ------------ Configuración de Breadcrumbs ------------ **/
+    "breadcrumbs.enabled": false,
+    "breadcrumbs.symbolPath": "on",
+    "breadcrumbs.filePath": "off",
+
+    /** ------------ Configuración adicional ------------ **/
+    // Habilita la carga de CSS personalizado para vscode
+    "vscode_custom_css.imports": [
+        "file:///C:/Users/Pieers/Documents/custom.css"
+        // "file:///Users/Pieers/Documentos/custom.js"
+    ],
+    "workbench.layoutControl.enabled": false,
+    "extensions.autoUpdate": false,
+
+    /** ------------ Configuración de JavaScript ------------ **/
+    // Define el formateador predeterminado para archivos JavaScript.
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+
+    /** ------------ Configuración de Emmet ------------ **/
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact",
+        "vue-html": "html",
+        "plaintext": "pug"
+    },
+    "emmet.showExpandedAbbreviation": "always", // Mostrar sugerencias de Emmet
+    "emmet.syntaxProfiles": {
+        "javascript": "jsx"
+    },
+
+    /** ------------ Configuración de IntelliSense y Snippets ------------ **/
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": true
+    },
+    "editor.snippetSuggestions": "top", // Mostrar snippets primero
+    "editor.suggest.showKeywords": true, // Mostrar sugerencias de palabras clave
+    "editor.suggest.showSnippets": true, // Mostrar snippets personalizados
+
+    /** ------------ Configuración de Extensiones Útiles ------------ **/
+    // ESLint
+    "eslint.format.enable": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "always"
+    },
+    // Tailwind CSS
+    "tailwindCSS.emmetCompletions": true,
+    "tailwindCSS.includeLanguages": {
+        "javascript": "html",
+        "typescript": "html"
+    },
+
+    /** ------------ Configuración adicional para temas ------------ **/
+    // Activa negritas en el tema One Dark Pro.
+    "oneDarkPro.bold": true,
+    "oneDarkPro.vivid": true,
+    "workbench.panel.showLabels": false,
+
+    /** ------------ Configuración Edamagit ------------ **/
+    "magit.display-buffer-function": "same-column",
+    "magit.forge-enabled": true
+}
