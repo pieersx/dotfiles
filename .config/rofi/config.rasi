@@ -2,10 +2,8 @@
  *
  * Author : Aditya Shakya (adi1090x)
  * Github : @adi1090x
- *
+ * 
  * Configuration For Rofi Version: 1.7.3
- *
- * https://github.com/adi1090x/rofi
  **/
 
 configuration {
@@ -14,13 +12,13 @@ configuration {
 	case-sensitive: false;
 	cycle: true;
 	filter: "";
-	scroll-method: 1;
+	scroll-method: 0;
 	normalize-match: true;
 	show-icons: true;
 	icon-theme: "Papirus";
-    /*	cache-dir: ;*/
+/*	cache-dir: ;*/
 	steal-focus: false;
-    /*	dpi: -1;*/
+/*	dpi: -1;*/
 
 	/*---------- Matching setting ----------*/
 	matching: "normal";
@@ -45,7 +43,6 @@ configuration {
 		parse-user:   true;
 		/** Parse system desktop files. */
 		parse-system: true;
-		fallback-icon: "application-x-addon";
     }
 
 	/*---------- Run settings ----------*/
@@ -54,7 +51,7 @@ configuration {
 	run-shell-command: "{terminal} -e {cmd}";
 
 	/*---------- Fallback Icon ----------*/
-	run {
+	run-drun {
 		fallback-icon: "application-x-addon";
 	}
 
@@ -65,13 +62,14 @@ configuration {
 	window-thumbnail: false;
 
 	/*---------- Combi settings ----------*/
-    /*	combi-modi: "window,run";*/
-    /*	combi-hide-mode-prefix: false;*/
-    /*	combi-display-format: "{mode} {text}";*/
+/*	combi-modi: "window,run";*/
+/*	combi-hide-mode-prefix: false;*/
+/*	combi-display-format: "{mode} {text}";*/
 
-	/*---------- History ----------*/
+	/*---------- History and Sorting ----------*/
 	disable-history: false;
-	max-history-size: 100;
+	sorting-method: "normal";
+	max-history-size: 25;
 
 	/*---------- Display setting ----------*/
 	display-window: "Windows";
@@ -79,17 +77,16 @@ configuration {
 	display-run: "Run";
 	display-ssh: "SSH";
 	display-drun: "Apps";
-	display-combi: "Apps   :";
+	display-combi: "Combi";
 	display-keys: "Keys";
 	display-filebrowser: "Files";
+ 	display-clipboard: "Clipboard 📋:";
 	display-emoji: "Emojis 😀:";
-	display-clipboard: "Clipboard 📋:";
 
 	/*---------- Misc setting ----------*/
 	terminal: "rofi-sensible-terminal";
-	font: "Iosevka 12";
-	sort: true;
-	sorting-method: "fzf";
+	font: "Mono 12";
+	sort: false;
 	threads: 0;
 	click-to-exit: true;
 /*	ignored-prefixes: "";*/

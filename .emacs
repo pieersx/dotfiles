@@ -1,99 +1,79 @@
-(setq custom-file "~/.emacs.custom.el")
-(package-initialize)
-
-(add-to-list 'load-path "~/.emacs.local/")
-
-(load-file "~/.emacs.rc/rc.el")
-
-(add-to-list 'default-frame-alist `(font . "Iosevka NF-20"))
-
-(setq backup-directory-alist '(("." . "~/.emacs_saves")))
+;(setq inhibit-startup-screen t)
 
 (menu-bar-mode 0)
 (tool-bar-mode 0)
-(scroll-bar-mode 0)
+(scroll-bar-mode 0)        ; Disable visible scrollbar
 (column-number-mode 1)
+
+;(add-to-list 'default-frame-alist `(font . "Iosevka Nerd Font-20"))
+;; Fonts
+(set-face-attribute 'default nil
+		    :family "Iosevka Nerd Font"
+		    :height 200)
+(set-face-attribute 'variable-pitch nil
+		    :family "Roboto"
+		    :height 150)
+(set-face-attribute 'fixed-pitch nil
+		    :family "Iosevka Nerd Font")
+
+;; parentesis
 (show-paren-mode 1)
 (electric-pair-mode 1)
-(global-display-line-numbers-mode 1)
 
-;; gruber-darker
-(rc/require-theme 'gruber-darker)
+(setq backup-directory-alist '(("." . "~/.emacs_saves")))
 
 ;;; ido
-(rc/require 'smex 'ido-completing-read+)
-
-(require 'ido-completing-read+)
-
+(require 'ido)
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
 (ido-mode 1)
-(ido-everywhere 1)
-(ido-ubiquitous-mode 1)
 
+;;; smex
+(unless (package-installed-p 'smex)
+ (package-install 'smex))
 (global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
-;;; c-mode
-(setq-default c-basic-offset 4
-              c-default-style '((java-mode . "java")
-                                (awk-mode . "awk")
-                                (other . "bsd")))
+;;; line relative
+(global-display-line-numbers-mode)
+(setq-default display-line-numbers-type 'relative)
 
-(add-hook 'c-mode-hook (lambda ()
-                         (interactive)
-                         (c-toggle-comment-style -1)))
+;;; Melpa
+(require 'package)
+(add-to-list 'package-archives
+	     '("melpa" . "https://melpa.org/packages/") t)
 
-(require 'simpc-mode)
-(add-to-list 'auto-mode-alist '("\\.[hc]\\(pp\\)?\\'" . simpc-mode))
-
-;;; multiple cursors
-(rc/require 'multiple-cursors)
-
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C->")         'mc/mark-next-like-this)
-(global-set-key (kbd "C-<")         'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<")     'mc/mark-all-like-this)
-(global-set-key (kbd "C-c n")       'mc/skip-to-next-like-this)
-(global-set-key (kbd "C-c p")       'mc/skip-to-previous-like-this)
-
-;;; dired
-(require 'dired-x)
-(setq dired-omit-files
-      (concat dired-omit-files "\\|^\\..+$"))
-(setq-default dired-dwim-target t)
-(setq dired-listing-switches "-alh")
-(setq dired-mouse-drag-files t)
-
-(defun rc/duplicate-line ()
-  "Duplicate current line"
-  (interactive)
-  (let ((column (- (point) (point-at-bol)))
-        (line (let ((s (thing-at-point 'line t)))
-                (if s (string-remove-suffix "\n" s) ""))))
-    (move-end-of-line 1)
-    (newline)
-    (insert line)
-    (move-beginning-of-line 1)
-    (forward-char column)))
-
-(global-set-key (kbd "C-,") 'rc/duplicate-line)
-
-;;; Move Text
-(rc/require 'move-text)
-(global-set-key (kbd "M-p") 'move-text-up)
-(global-set-key (kbd "M-n") 'move-text-down)
-
+(package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents))
 
 ;;; Company
-(rc/require 'company)
+(unless (package-installed-p 'company)
+ (package-install 'company))
 (require 'company)
-
 (global-company-mode)
+(global-set-key (kbd "C-c d") 'company-dabbrev)
 
+;;; multiple-cursors
+(unless (package-installed-p 'multiple-cursors)
+ (package-install 'multiple-cursors))
+(require 'multiple-cursors)
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+(global-unset-key (kbd "M-<down-mouse-1>"))
+(global-set-key (kbd "M-<mouse-1>") 'mc/add-cursor-on-click)
+(global-set-key (kbd "C-c k") 'mc/skip-to-next-like-this)
+(global-set-key (kbd "C-c :") 'mc/skip-to-previous-like-this)
 
-(add-hook 'tuareg-mode-hook
-          (lambda ()
-            (interactive)
-            (company-mode 0)))
+;;; move Text
+(unless (package-installed-p 'move-text)
+ (package-install 'move-text))
+(require 'move-text)
+(global-set-key (kbd "M-p") 'move-text-up)
+(global-set-key (kbd "M-n") 'move-text-down)
 
 ;;; word-wrap
 (defun rc/enable-word-wrap ()
@@ -102,7 +82,25 @@
 
 (add-hook 'markdown-mode-hook 'rc/enable-word-wrap)
 
+;;; Duplicate line
+(unless (package-installed-p 'duplicate-thing)
+ (package-install 'duplicate-thing))
+(require 'duplicate-thing)
+(global-set-key (kbd "C-,") 'duplicate-thing)
+
 ;; sustituye yes/no por y/n
 (fset 'yes-or-no-p 'y-or-n-p)
-
-(load-file custom-file)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes '(gruber-darker))
+ '(custom-safe-themes
+   '("01a9797244146bbae39b18ef37e6f2ca5bebded90d9fe3a2f342a9e863aaa4fd" default)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
