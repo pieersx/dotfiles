@@ -1,76 +1,172 @@
 -- Importa el módulo wezterm
 local wezterm = require 'wezterm'
+local act = wezterm.action
 
--- This will hold the configuration.
-local config = wezterm.config_builder()
+-- Inicializa la configuración
+local config = {}
+if wezterm.config_builder then
+  config = wezterm.config_builder()
+end
 
--- ================================
--- 1. Configuración de Esquema de Colores
--- ================================
+-- Colors settings
 config.colors = {
-  -- Colores principales
   foreground = "#ffffe6",
   background = "#181818",
 
-  -- Cursor
-  cursor_bg = "#c0caf5",         -- Fondo del cursor
-  cursor_border = "#c0caf5",     -- Borde del cursor
-  cursor_fg = "#1a1b26",         -- Texto del cursor
+  cursor_bg = "#c0caf5",
+  cursor_border = "#c0caf5",
+  cursor_fg = "#1a1b26",
 
-  -- Selección
-  selection_bg = "#28344a",      -- Fondo de la selección
-  selection_fg = "#7aa2f7",      -- Texto de la selección
+  selection_bg = "#28344a",
+  selection_fg = "#7aa2f7",
 
-  -- Colores ANSI (0-7)
   ansi = {
-    "#414868", -- Negro
-    "#f7768e", -- Rojo
-    "#73daca", -- Verde
-    "#e0af68", -- Amarillo
-    "#7aa2f7", -- Azul
-    "#bb9af7", -- Magenta
-    "#7dcfff", -- Cian
-    "#c0caf5", -- Blanco
+    "#414868",
+    "#f7768e",
+    "#73daca",
+    "#e0af68",
+    "#7aa2f7",
+    "#bb9af7",
+    "#7dcfff",
+    "#c0caf5",
   },
 
-  -- Colores ANSI brillantes (8-15)
   brights = {
-    "#414868", -- Negro brillante
-    "#f7768e", -- Rojo brillante
-    "#73daca", -- Verde brillante
-    "#e0af68", -- Amarillo brillante
-    "#7aa2f7", -- Azul brillante
-    "#bb9af7", -- Magenta brillante
-    "#7dcfff", -- Cian brillante
-    "#c0caf5", -- Blanco brillante
+    "#414868",
+    "#f7768e",
+    "#73daca",
+    "#e0af68",
+    "#7aa2f7",
+    "#bb9af7",
+    "#7dcfff",
+    "#c0caf5",
   },
 }
 
--- ================================
--- 2. Configuración de Fuentes
--- ================================
+-- Fonts settings
 config.font = wezterm.font_with_fallback {
   { family = 'Iosevka Nerd Font', weight = 'Medium' },
-  -- { family = 'MesloLGS NF', weight = 'Bold' },
-  -- { family = 'Nerd Font Symbols', scale = 0.8 },
 }
 config.font_size = 15.0
--- config.line_height = 1.025
+
+-- Appearance
+config.window_padding = {
+  left = 20,
+  top = 0,
+  right = 0,
+  bottom = 0
+}
+
+config.window_background_opacity = 0.9
+config.initial_cols = 120
+config.initial_rows = 33
+config.window_decorations = 'RESIZE'
+config.window_close_confirmation = "AlwaysPrompt"
+config.default_workspace = "wezterm"
+config.enable_tab_bar = true
+config.tab_bar_at_bottom = false
+config.use_fancy_tab_bar = false
+config.status_update_interval = 1000
+config.status_update_interval = 1000
+-- config.hide_tab_bar_if_only_one_tab = true
+
+-- Shell settings
+config.default_prog = { 'pwsh.exe', '-NoLogo' }
 
 -- ================================
--- 3. Opciones de Ventana
+-- 5. Historial y Scroll
 -- ================================
-config.window_padding = {
-  left = 30,
-  top = 10,
-  right = 30,
-  bottom = 30
+config.scrollback_lines = 10000
+
+-- ================================
+-- 6. Keybindings Personalizados
+-- ================================
+config.leader = { key = "x", mods = "CTRL", timeout_milliseconds = 1000 }
+config.keys = {
+  -- Send C-a when pressing C-a twice
+  { key = "a",          mods = "LEADER|CTRL", action = act.SendKey { key = "a", mods = "CTRL" } },
+  { key = "c",          mods = "LEADER",      action = act.ActivateCopyMode },
+  { key = "phys:Space", mods = "LEADER",      action = act.ActivateCommandPalette },
+
+  -- Pane keybindings
+  { key = "s",          mods = "LEADER",      action = act.SplitVertical { domain = "CurrentPaneDomain" } },
+  { key = "v",          mods = "LEADER",      action = act.SplitHorizontal { domain = "CurrentPaneDomain" } },
+
+  { key = "h",          mods = "LEADER",      action = act.ActivatePaneDirection("Left") },
+  { key = "j",          mods = "LEADER",      action = act.ActivatePaneDirection("Down") },
+  { key = "k",          mods = "LEADER",      action = act.ActivatePaneDirection("Up") },
+  { key = "l",          mods = "LEADER",      action = act.ActivatePaneDirection("Right") },
+
+  { key = "q",          mods = "LEADER",      action = act.CloseCurrentPane { confirm = true } },
+  { key = "z",          mods = "LEADER",      action = act.TogglePaneZoomState },
+  { key = "o",          mods = "LEADER",      action = act.RotatePanes "Clockwise" },
+
+  -- We can make separate keybindings for resizing panes
+  -- But Wezterm offers custom "mode" in the name of "KeyTable"
+  { key = "r",          mods = "LEADER",      action = act.ActivateKeyTable { name = "resize_pane", one_shot = false } },
+
+  -- Tab keybindings
+  { key = "t",          mods = "LEADER",      action = act.SpawnTab("CurrentPaneDomain") },
+  { key = "[",          mods = "LEADER",      action = act.ActivateTabRelative(-1) },
+  { key = "]",          mods = "LEADER",      action = act.ActivateTabRelative(1) },
+  { key = "n",          mods = "LEADER",      action = act.ShowTabNavigator },
+  {
+    key = "e",
+    mods = "LEADER",
+    action = act.PromptInputLine {
+      description = wezterm.format {
+        { Attribute = { Intensity = "Bold" } },
+        { Foreground = { AnsiColor = "Fuchsia" } },
+        { Text = "Renaming Tab Title...:" },
+      },
+      action = wezterm.action_callback(function(window, pane, line)
+        if line then
+          window:active_tab():set_title(line)
+        end
+      end)
+    }
+  },
+  -- Key table for moving tabs around
+  { key = "m", mods = "LEADER",       action = act.ActivateKeyTable { name = "move_tab", one_shot = false } },
+
+  -- Or shortcuts to move tab w/o move_tab table. SHIFT is for when caps lock is on
+  { key = "{", mods = "LEADER|SHIFT", action = act.MoveTabRelative(-1) },
+  { key = "}", mods = "LEADER|SHIFT", action = act.MoveTabRelative(1) },
+
+  -- Lastly, workspace
+  { key = "w", mods = "LEADER",       action = act.ShowLauncherArgs { flags = "FUZZY|WORKSPACES" } },
+
 }
--- config.inactive_pane_hsb = {
---   saturation = 0.24,
---   brightness = 0.5
--- }
-wezterm.on("update-status", function(window, pane)
+
+-- I can use the tab navigator (LDR t), but I also want to quickly navigate tabs with index
+for i = 1, 9 do
+  table.insert(config.keys, {
+    key = tostring(i),
+    mods = "LEADER",
+    action = act.ActivateTab(i - 1)
+  })
+end
+
+config.key_tables = {
+  resize_pane = {
+    { key = "h",      action = act.AdjustPaneSize { "Left", 1 } },
+    { key = "j",      action = act.AdjustPaneSize { "Down", 1 } },
+    { key = "k",      action = act.AdjustPaneSize { "Up", 1 } },
+    { key = "l",      action = act.AdjustPaneSize { "Right", 1 } },
+    { key = "Escape", action = "PopKeyTable" },
+    { key = "Enter",  action = "PopKeyTable" },
+  },
+  move_tab = {
+    { key = "h",      action = act.MoveTabRelative(-1) },
+    { key = "j",      action = act.MoveTabRelative(-1) },
+    { key = "k",      action = act.MoveTabRelative(1) },
+    { key = "l",      action = act.MoveTabRelative(1) },
+    { key = "Escape", action = "PopKeyTable" },
+    { key = "Enter",  action = "PopKeyTable" },
+  }
+}
+
+wezterm.on("update-right-status", function(window, pane)
   -- Workspace name
   local stat = window:active_workspace()
   local stat_color = "#f7768e"
@@ -85,7 +181,7 @@ wezterm.on("update-status", function(window, pane)
     stat_color = "#bb9af7"
   end
 
-  local basename = function(s)
+    local basename = function(s)
     -- Nothing a little regex can't fix
     return string.gsub(s, "(.*[/\\])(.*)", "%2")
   end
@@ -116,8 +212,8 @@ wezterm.on("update-status", function(window, pane)
   window:set_left_status(wezterm.format({
     { Foreground = { Color = stat_color } },
     { Text = "  " },
-    { Text = wezterm.nerdfonts.oct_table .. "  " .. stat },
-    { Text = " |" },
+    { Text = wezterm.nerdfonts.md_folder .. "  " .. stat },
+    { Text = " | " },
   }))
 
   -- Right status
@@ -135,84 +231,17 @@ wezterm.on("update-status", function(window, pane)
   }))
 end)
 
-config.window_background_opacity = 0.9
-config.initial_cols = 120
-config.initial_rows = 33
-config.window_decorations = 'RESIZE'
-config.window_close_confirmation = "AlwaysPrompt"
-config.default_workspace = "main"
-config.enable_tab_bar = true
--- config.hide_tab_bar_if_only_one_tab = true
-config.use_fancy_tab_bar = false
-config.status_update_interval = 1000
-
--- ================================
--- 4. Configuración del Shell Predeterminado
--- ================================
-config.default_prog = { 'pwsh.exe', '-l' }
-
--- ================================
--- 5. Historial y Scroll
--- ================================
-config.scrollback_lines = 10000
-
--- ================================
--- 6. Keybindings Personalizados
--- ================================
-config.keys = {
-  -- Nueva pestaña
-  { key = "t", mods = "CTRL|SHIFT", action = wezterm.action.SpawnTab "DefaultDomain" },
-
-  -- Cerrar pestaña
-  { key = "w", mods = "CTRL|SHIFT", action = wezterm.action.CloseCurrentTab { confirm = true } },
-
-  -- Dividir paneles horizontalmente
-  { key = "d", mods = "CTRL|SHIFT", action = wezterm.action.SplitHorizontal { domain = "CurrentPaneDomain" } },
-
-  -- Dividir paneles verticalmente
-  -- { key = "v", mods = "CTRL|SHIFT", action = wezterm.action.SplitVertical { domain = "CurrentPaneDomain" } },
-
-  -- Cambiar entre pestañas
-  { key = "Tab", mods = "CTRL", action = wezterm.action.ActivateTabRelative(1) },
-  { key = "Tab", mods = "CTRL|SHIFT", action = wezterm.action.ActivateTabRelative(-1) },
-
-  -- Ajuste de zoom
-  { key = "z", mods = "CTRL|SHIFT", action = wezterm.action.TogglePaneZoomState },
-
-  -- Búsqueda
-  { key = "f", mods = "CTRL|SHIFT", action = wezterm.action.Search { CaseSensitiveString = "" } },
-}
-
--- ================================
--- 7. Opciones para Desarrolladores
--- ================================
-config.check_for_updates = false
-config.debug_key_events = false
-
--- ================================
--- 8. Habilitar Plugins Adicionales
--- ================================
-config.hyperlink_rules = wezterm.default_hyperlink_rules()
-
--- Añade soporte para direcciones GitHub y rutas locales
-table.insert(config.hyperlink_rules, {
-  regex = [[\bhttps://github\.com/\w+/\w+\b]],
-  format = "$0",
-})
-
 -- ================================
 -- 9. Mejor Compatibilidad en Windows
 -- ================================
-config.front_end = 'WebGpu' -- Mejora el rendimiento gráfico en Windows `OpenGl`
--- config.webgpu_preferred_adapter = 'HighPerformance' -- Usa la GPU principal
+config.front_end = 'OpenGL' -- Mejora el rendimiento gráfico en Windows `OpenGl`
 
 -- ================================
 -- 10. Información Útil en la Barra
 -- ================================
-config.status_update_interval = 1000
 config.window_frame = {
   active_titlebar_bg = "#2c313a",
-  font = wezterm.font { family = "Iosevka", weight = "Bold" },
+  font = wezterm.font { family = "Iosevka Nerd Font", weight = "Bold" },
 }
 
 -- return the configuration to wezterm
