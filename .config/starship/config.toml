@@ -37,6 +37,8 @@ added_style = 'bold blue'
 format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
 
 [git_status]
+deleted = '✘ '
+behind = '⇣ '
 staged = '[++\($count\)](green)'
 style = "bold bright-purple"
 

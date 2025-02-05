@@ -74,8 +74,8 @@
     /** ------------ Configuración adicional ------------ **/
     // Habilita la carga de CSS personalizado para vscode
     "vscode_custom_css.imports": [
-        "file:///C:/Users/Pieers/Documents/custom.css"
-        // "file:///Users/Pieers/Documentos/custom.js"
+      "file:///C:/Users/Pieers/Documents/custom.css"
+      // "file:///Users/Pieers/Documentos/custom.js"
     ],
     "workbench.layoutControl.enabled": false,
     "extensions.autoUpdate": false,
@@ -83,34 +83,37 @@
     /** ------------ Configuración de JavaScript ------------ **/
     // Define el formateador predeterminado para archivos JavaScript.
     "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[css]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
 
     /** ------------ Configuración de Emmet ------------ **/
     "emmet.includeLanguages": {
-        "javascript": "javascriptreact",
-        "vue-html": "html",
-        "plaintext": "pug"
+      "javascript": "javascriptreact",
+      "vue-html": "html",
+      "plaintext": "pug"
     },
     "emmet.showExpandedAbbreviation": "always", // Mostrar sugerencias de Emmet
     "emmet.syntaxProfiles": {
-        "javascript": "jsx"
+      "javascript": "jsx"
     },
 
     /** ------------ Configuración de IntelliSense y Snippets ------------ **/
     "editor.quickSuggestions": {
-        "other": true,
-        "comments": false,
-        "strings": true
+      "other": true,
+      "comments": false,
+      "strings": true
     },
     "editor.snippetSuggestions": "top", // Mostrar snippets primero
     "editor.suggest.showKeywords": true, // Mostrar sugerencias de palabras clave
@@ -120,13 +123,13 @@
     // ESLint
     "eslint.format.enable": true,
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": "always"
+      "source.fixAll.eslint": "always"
     },
     // Tailwind CSS
     "tailwindCSS.emmetCompletions": true,
     "tailwindCSS.includeLanguages": {
-        "javascript": "html",
-        "typescript": "html"
+      "javascript": "html",
+      "typescript": "html"
     },
 
     /** ------------ Configuración adicional para temas ------------ **/
@@ -137,5 +140,38 @@
 
     /** ------------ Configuración Edamagit ------------ **/
     "magit.display-buffer-function": "same-column",
-    "magit.forge-enabled": true
-}
+    "magit.forge-enabled": true,
+
+    /** ------------ Configuración SQLTools ------------ **/
+    "sqltools.useNodeRuntime": true,
+    "sqltools.format": {
+      "reservedWordCase": "upper",
+      "indentStyle": "space",
+      "indentSize": 4,
+      "logicalOperatorNewline": "before",
+      "aliasAs": "always",
+      "commaPosition": "after",
+      "expressionWidth": 80
+    },
+    "sqltools.highlightQuery": true,
+
+    /** ------------ Configuración Prettier SQL VSCode ------------ **/
+    "[sql]": {
+      "editor.defaultFormatter": "inferrinizzard.prettier-sql-vscode",
+      "editor.formatOnSave": true,
+      "editor.tabSize": 2
+    },
+    "Prettier-SQL.commaPosition": "after",
+    "Prettier-SQL.denseOperators": false,
+    "Prettier-SQL.expressionWidth": 50,
+    "Prettier-SQL.ignoreTabSettings": false,
+    "Prettier-SQL.indentStyle": "standard",
+    "Prettier-SQL.insertSpacesOverride": true,
+    "Prettier-SQL.keywordCase": "upper",
+    "Prettier-SQL.linesBetweenQueries": 1,
+    "Prettier-SQL.logicalOperatorNewline": "before",
+    "Prettier-SQL.newlineBeforeSemicolon": false,
+    "Prettier-SQL.SQLFlavourOverride": "postgresql",
+    "Prettier-SQL.tabSizeOverride": 2,
+    "Prettier-SQL.tabulateAlias": true
+  }
