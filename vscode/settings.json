@@ -56,6 +56,9 @@
   "oneDarkPro.vivid": true,
   "window.systemColorTheme": "dark",
 
+  // Busqueda
+  "editor.find.seedSearchStringFromSelection": "never",
+
   /** ------------ Configuración Editor y Explorador ------------ **/
   // Pestañas y Archivos
   "workbench.startupEditor": "none",
@@ -216,10 +219,7 @@
 
   /** ------------ Configuración Prettier SQL VSCode ------------ **/
   "Prettier-SQL.keywordCase": "upper",
-  "Prettier-SQL.linesBetweenQueries": 1,
-  "Prettier-SQL.newlineBeforeSemicolon": false,
   "Prettier-SQL.SQLFlavourOverride": "postgresql",
-  "Prettier-SQL.tabSizeOverride": 2,
   "Prettier-SQL.tabulateAlias": true,
 
   /** ------------ Configuración Error Lens ------------ **/
@@ -227,5 +227,11 @@
   "errorLens.fontWeight": "800",
   "errorLens.fontStyleItalic": true,
   "errorLens.gutterIconSet": "borderless",
-  "errorLens.gutterIconsEnabled": true
+  "errorLens.gutterIconsEnabled": true,
+
+  /** ------------ Configuración Awesome Emacs keymap ------------ **/
+  "emacs-mcx.emacsLikeTab": true,
+  "emacs-mcx.useMetaPrefixEscape": true,
+  "emacs-mcx.killWholeLine": true,
+  "emacs-mcx.lineMoveVisual": true
 }

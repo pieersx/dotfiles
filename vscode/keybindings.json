@@ -1,52 +1,86 @@
 [
-    // Duplicar linea
-    {
-        "key": "ctrl+,",
-        "command": "editor.action.duplicateSelection"
-    },
-    {
-        "key": "ctrl+,",
-        "command": "-workbench.action.openSettings"
-    },
-    // Extension vs-emacs-tab
-    {
-        "key": "ctrl+tab",
-        "command": "emacs-tab.reindentCurrentLine",
-        "when": "editorTextFocus"
-    },
-    // Abrir panel de configuraciones
-    {
-        "key": "alt+,",
-        "command": "workbench.action.openSettings"
-    },
-    // Extension File Browser
-    {
-        "key": "ctrl+x ctrl+f",
-        "command": "file-browser.open"
-    },
-    // Abrir panel de comandos
-    {
-        "key": "alt+e",
-        "command": "workbench.action.showCommands"
-    },
-    {
-        "key": "f1",
-        "command": "-workbench.action.showCommands"
-    },
-    {
-        "key": "alt+x",
-        "command": "-workbench.action.showCommands",
-        "when": "!config.emacs-mcx.useMetaPrefixMacCmd"
-    },
-    {
-        "key": "alt+x",
-        "command": "-workbench.action.showCommands",
-        "when": "config.emacs-mcx.useMetaPrefixMacCmd"
-    },
-    // Extension Expand Region
-    {
-        "key": "ctrl+alt+c",
-        "command": "expand_region",
-        "when": "editorTextFocus"
-    }
+  // Duplicar linea
+  {
+    "key": "ctrl+,",
+    "command": "editor.action.duplicateSelection"
+  },
+  {
+    "key": "ctrl+,",
+    "command": "-workbench.action.openSettings"
+  },
+
+  // vs-emacs-tab
+  {
+    "key": "ctrl+tab",
+    "command": "emacs-tab.reindentCurrentLine",
+    "when": "editorTextFocus"
+  },
+
+  // File Browser
+  {
+    "key": "ctrl+x alt+f",
+    "command": "file-browser.open"
+  },
+
+  // Extension Expand Region
+  {
+    "key": "ctrl+alt+c",
+    "command": "expand_region",
+    "when": "editorTextFocus"
+  },
+
+  // Mover linea arriba
+  {
+    "key": "alt+p",
+    "command": "editor.action.moveLinesUpAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "alt+up",
+    "command": "-editor.action.moveLinesUpAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+
+  // Mover linea abajo
+  {
+    "key": "alt+n",
+    "command": "editor.action.moveLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "alt+down",
+    "command": "-editor.action.moveLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+
+  // Abrir settings
+  {
+    "key": "ctrl+x alt+s",
+    "command": "workbench.action.openSettingsJson"
+  },
+
+  // Abrir keybindings
+  {
+    "key": "ctrl+x alt+k",
+    "command": "workbench.action.openGlobalKeybindings"
+  },
+  {
+    "key": "ctrl+k ctrl+s",
+    "command": "-workbench.action.openGlobalKeybindings"
+  },
+
+  // Magit
+  {
+    "key": "ctrl+x g",
+    "command": "magit.status"
+  },
+  {
+    "key": "ctrl+x ctrl+g",
+    "command": "magit.dispatch"
+  },
+  {
+    "key": "ctrl+x alt+g",
+    "command": "magit.file-popup",
+    "when": "activeEditor"
+  }
 ]
