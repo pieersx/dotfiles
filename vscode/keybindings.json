@@ -9,16 +9,9 @@
     "command": "-workbench.action.openSettings"
   },
 
-  // vs-emacs-tab
-  {
-    "key": "ctrl+tab",
-    "command": "emacs-tab.reindentCurrentLine",
-    "when": "editorTextFocus"
-  },
-
   // File Browser
   {
-    "key": "ctrl+x alt+f",
+    "key": "ctrl+x f",
     "command": "file-browser.open"
   },
 
