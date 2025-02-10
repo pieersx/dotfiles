@@ -18,7 +18,7 @@
 
   // File Browser
   {
-    "key": "ctrl+x alt+f",
+    "key": "ctrl+x f",
     "command": "file-browser.open"
   },
 

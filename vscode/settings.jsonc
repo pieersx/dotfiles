@@ -63,7 +63,6 @@
   // Pestañas y Archivos
   "workbench.startupEditor": "none",
   "workbench.editor.enablePreview": false,
-  "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.labelFormat": "default",
   "workbench.editor.empty.hint": "hidden",
   "workbench.editor.showTabs": "multiple",
