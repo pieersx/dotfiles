@@ -1,0 +1,285 @@
+{
+  /** ------------ Configuración Seguridad y Archivos ------------ **/
+  // Seguridad
+  "security.workspace.trust.untrustedFiles": "open",
+
+  // Archivos
+  "files.trimFinalNewlines": true,
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+
+  // Guardado
+  "window.confirmSaveUntitledWorkspace": false,
+
+  /** ------------ Configuración Editor ------------ **/
+  // Appearance
+  "editor.minimap.enabled": false,
+  "editor.renderLineHighlight": "none",
+  "editor.guides.indentation": true,
+  // "editor.rulers": [80, 120],
+
+  // Fonts
+  "editor.fontFamily": "'Iosevka Nerd Font', 'JetBrainsMono Nerd Font'",
+  "editor.fontSize": 20,
+  "editor.fontLigatures": true,
+  "editor.fontWeight": 500,
+
+  // Formateo
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.tabSize": 4,
+
+  // Cursor
+  "editor.cursorStyle": "block",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorBlinking": "phase",
+
+  // Interacción
+  "editor.mouseWheelZoom": true,
+  "editor.multiCursorModifier": "ctrlCmd",
+
+  // Texto
+  "editor.wordWrap": "on",
+  "editor.linkedEditing": true, // HTML
+
+  // Scroll
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.verticalScrollbarSize": 0,
+  "editor.scrollbar.vertical": "hidden",
+  "editor.smoothScrolling": true,
+
+  // Temas y Apariencia
+  "workbench.colorTheme": "One Dark Pro Darker",
+  "workbench.iconTheme": "symbols",
+  "workbench.productIconTheme": "fluent-icons",
+  "oneDarkPro.bold": true,
+  "oneDarkPro.vivid": true,
+  // "window.systemColorTheme": "dark",
+
+  // Busqueda
+  "editor.find.seedSearchStringFromSelection": "never",
+
+  /** ------------ Configuración Editor y Explorador ------------ **/
+  // Pestañas y Archivos
+  "workbench.startupEditor": "none",
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.labelFormat": "default",
+  "workbench.editor.empty.hint": "hidden",
+  "workbench.editor.showTabs": "multiple",
+  "workbench.editorLargeFileConfirmation": 10024,
+
+  // Ventana y Menús
+  "window.menuBarVisibility": "hidden",
+  "window.enableMenuBarMnemonics": false,
+  // "window.titleBarStyle": "native",
+  // "window.customTitleBarVisibility": "never",
+  "workbench.layoutControl.enabled": false,
+  "workbench.panel.showLabels": true,
+
+  // Explorador de Archivos
+  "workbench.sideBar.location": "right",
+  "workbench.tree.indent": 18,
+  "workbench.tree.renderIndentGuides": "none",
+
+  /** ------------ Configuración Explorador ------------ **/
+  "explorer.sortOrder": "foldersNestsFiles",
+  "explorer.autoReveal": false,
+  "explorer.confirmDelete": false,
+
+  /** ------------ Configuración Terminal ------------ **/
+  // Configuración General
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
+
+  // Fonts
+  "terminal.integrated.fontFamily": "'Iosevka Nerd Font', 'JetBrainsMono Nerd Font'",
+  "terminal.integrated.fontLigatures": true,
+  "terminal.integrated.fontSize": 20,
+  "terminal.integrated.fontWeight": "800",
+
+  // Cursor y Keybindings
+  "terminal.integrated.cursorStyle": "block",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.sendKeybindingsToShell": true,
+
+  // Interacción y Scroll
+  "terminal.integrated.mouseWheelZoom": true,
+  "terminal.integrated.smoothScrolling": true,
+  "terminal.integrated.stickyScroll.enabled": true,
+
+  /** ------------ Configuración Navegación ------------ **/
+  "breadcrumbs.enabled": false,
+  "breadcrumbs.symbolPath": "on",
+  "breadcrumbs.filePath": "off",
+
+  /** ------------ Configuración IntelliSense y Snippets ------------ **/
+  "editor.suggestSelection": "recentlyUsedByPrefix",
+  "editor.quickSuggestions": {
+    "other": true,
+    "strings": true
+  },
+  "editor.snippetSuggestions": "top",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.acceptSuggestionOnEnter": "smart",
+
+  /** ------------ Configuración Lenguajes Específicos ------------ **/
+  "[c]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 4
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[sql]": {
+    "editor.defaultFormatter": "inferrinizzard.prettier-sql-vscode",
+    "editor.tabSize": 2
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2
+  },
+
+  /** ------------ Configuración Extensiones ------------ **/
+  "extensions.ignoreRecommendations": true,
+  "extensions.autoUpdate": false,
+
+  /** ------------ Configuración Prettier ------------ **/
+  "prettier.singleQuote": true,
+  "prettier.semi": false,
+  // "prettier.printWidth": 80,
+  "prettier.jsxSingleQuote": true,
+  "prettier.vueIndentScriptAndStyle": true,
+
+  /** ------------ Configuración de Live Server ------------ **/
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveServer.settings.port": 6969,
+  "liveServer.settings.CustomBrowser": "chrome",
+
+  /** ------------ Configuración Custom CSS and JS Loader ------------ **/
+  "vscode_custom_css.imports": [
+    "file:///home/pieers/Documentos/custom.css"
+    // "file:///Users/Pieers/Documentos/custom.js"
+  ],
+
+  /** ------------ Configuración de Emmet ------------ **/
+  "emmet.showExpandedAbbreviation": "always", // Mostrar sugerencias de Emmet
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.includeLanguages": {
+    "html": "html",
+    "javascript": "javascriptreact",
+    "vue-html": "html",
+    "plaintext": "pug"
+  },
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx"
+  },
+  "html.validate.scripts": true,
+  "html.validate.styles": true,
+  "css.validate": true,
+
+  /** ------------ Configuración ESlint ------------ **/
+  "eslint.format.enable": true,
+  "eslint.options": {
+    "extensions": [".js", ".jsx", ".ts", ".tsx"]
+  },
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always",
+    "source.fixAll.stylelint": "always",
+    "source.organizeImports": "always"
+  },
+
+  /** ------------ Configuración Tailwind CSS IntelliSense ------------ **/
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.includeLanguages": {
+    "javascript": "html",
+    "typescript": "html"
+  },
+
+  /** ------------ Configuración Error Lens ------------ **/
+  "errorLens.messageBackgroundMode": "message",
+  "errorLens.fontWeight": "800",
+  "errorLens.fontStyleItalic": true,
+  "errorLens.gutterIconSet": "borderless",
+  "errorLens.gutterIconsEnabled": true,
+
+  /** ------------ Configuración Edamagit ------------ **/
+  "magit.display-buffer-function": "same-column",
+  "magit.forge-enabled": true,
+
+  /** ------------ Configuración Import Cost ------------ **/
+  "importCost.fontStyle": "italic",
+  "importCost.showCalculatingDecoration": true,
+  "importCost.bundleSizeColoring": "compressed",
+
+  /** ------------ Configuración SVG Preview ------------ **/
+  "svgPreview.autoOpen": false,
+
+  /** ------------ Configuración Java ------------ **/
+  "redhat.telemetry.enabled": false,
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java",
+    "editor.formatOnSave": true
+  },
+  // "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+  // "java.format.settings.profile": "GoogleStyle",
+
+  "java.jdt.ls.java.home": "/opt/jdk-23.0.2",
+  "java.project.referencedLibraries": ["/opt/javafx/lib/**/*.jar"],
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-23",
+      "path": "/opt/jdk-23.0.2",
+      "default": true
+    }
+  ],
+  "java.debug.settings.enableRunDebugCodeLens": false,
+
+  /** ------------ Configuración Code Runner ------------ **/
+  // "code-runner.clearPreviousOutput": true,
+  // "code-runner.runInTerminal": true,
+  // "code-runner.executorMap": {
+  //   "java": "javac -d $workspaceRoot/bin $fullFileName ; java -cp $workspaceRoot/bin $(echo $dir | sed 's|$workspaceRoot/src/||' | tr '/' '.')$fileNameWithoutExt"
+  // },
+  // "code-runner.saveFileBeforeRun": true,
+  // "code-runner.ignoreSelection": true
+
+  /** ------------ Configuración SQLTools ------------ **/
+  "sqltools.highlightQuery": false,
+
+  /** ------------ Configuración Prettier SQL VSCode ------------ **/
+  "Prettier-SQL.keywordCase": "upper",
+  "Prettier-SQL.linesBetweenQueries": 2,
+  "Prettier-SQL.SQLFlavourOverride": "postgresql",
+  "Prettier-SQL.tabulateAlias": true,
+
+  /** ------------ Configuración Awesome Emacs keymap ------------ **/
+  "emacs-mcx.emacsLikeTab": true,
+  "emacs-mcx.useMetaPrefixEscape": true,
+  "emacs-mcx.killWholeLine": true,
+  "emacs-mcx.lineMoveVisual": true,
+  "emacs-mcx.enableOverridingTypeCommand": false
+}
