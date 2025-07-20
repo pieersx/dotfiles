@@ -11,8 +11,12 @@
 
   // File Browser
   {
-    "key": "ctrl+x f",
+    "key": "ctrl+x ctrl+f",
     "command": "file-browser.open"
+  },
+  {
+    "key": "ctrl+x f",
+    "command": "workbench.action.quickOpen"
   },
 
   // Extension Expand Region
@@ -55,7 +59,7 @@
   // Abrir keybindings
   {
     "key": "ctrl+x alt+k",
-    "command": "workbench.action.openGlobalKeybindings"
+    "command": "workbench.action.openGlobalKeybindingsFile"
   },
   {
     "key": "ctrl+k ctrl+s",
@@ -67,13 +71,14 @@
     "key": "ctrl+x g",
     "command": "magit.status"
   },
+
+  // Rehacer
   {
-    "key": "ctrl+x ctrl+g",
-    "command": "magit.dispatch"
+    "key": "ctrl+x y",
+    "command": "redo"
   },
   {
-    "key": "ctrl+x alt+g",
-    "command": "magit.file-popup",
-    "when": "activeEditor"
+    "key": "ctrl+y",
+    "command": "-redo"
   }
 ]

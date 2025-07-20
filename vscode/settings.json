@@ -1,66 +1,68 @@
 {
-  /** ------------ Configuración Seguridad y Archivos ------------ **/
-  // Seguridad
+  // ─────────────────────── Seguridad y Archivos ───────────────────────
   "security.workspace.trust.untrustedFiles": "open",
-
-  // Archivos
+  "window.confirmSaveUntitledWorkspace": false,
   "files.trimFinalNewlines": true,
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
 
-  // Guardado
-  "window.confirmSaveUntitledWorkspace": false,
-
-  /** ------------ Configuración Editor ------------ **/
-  // Appearance
-  "editor.minimap.enabled": false,
+  // ────────────────────────────── Editor ──────────────────────────────
+  "editor.lineNumbers": "relative",
   "editor.renderLineHighlight": "none",
   "editor.guides.indentation": true,
+  "editor.minimap.enabled": false,
   // "editor.rulers": [80, 120],
 
   // Fonts
   "editor.fontFamily": "Iosevka Nerd Font",
   "editor.fontSize": 20,
+  "editor.fontWeight": 600,
   "editor.fontLigatures": true,
-  "editor.fontWeight": 500,
 
-  // Formateo
+  // Formatting
   "editor.tabSize": 4,
   // "editor.formatOnSave": true,
   // "editor.formatOnPaste": true,
 
   // Cursor
   "editor.cursorStyle": "block",
+  "editor.cursorBlinking": "expand",
   "editor.cursorSmoothCaretAnimation": "on",
-  "editor.cursorBlinking": "phase",
 
-  // Interacción
+  // Interaction
   "editor.mouseWheelZoom": true,
   "editor.multiCursorModifier": "ctrlCmd",
 
-  // Texto
+  // Navigation y Edition
   "editor.wordWrap": "on",
   "editor.linkedEditing": true, // HTML
-
-  // Scroll
-  "editor.scrollbar.horizontal": "hidden",
-  "editor.scrollbar.verticalScrollbarSize": 0,
-  "editor.scrollbar.vertical": "hidden",
   "editor.smoothScrolling": true,
 
-  // Temas y Apariencia
-  "workbench.colorTheme": "One Dark Pro Darker",
+  // Scrollbars
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "hidden",
+  "editor.scrollbar.verticalScrollbarSize": 0,
+
+  // Search and Suggestions
+  "editor.find.seedSearchStringFromSelection": "never",
+  "editor.suggestSelection": "recentlyUsedByPrefix",
+
+  // Actions on Save
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always",
+    "source.fixAll.stylelint": "always",
+    "source.organizeImports": "always"
+  },
+
+  // ──────────────────────── Apariencia y Temas ────────────────────────
+  "workbench.colorTheme": "One Darker Pro",
   "workbench.iconTheme": "symbols",
   "workbench.productIconTheme": "fluent-icons",
   "oneDarkPro.bold": true,
   "oneDarkPro.vivid": true,
-  "window.systemColorTheme": "dark",
 
-  // Busqueda
-  "editor.find.seedSearchStringFromSelection": "never",
-
-  /** ------------ Configuración Editor y Explorador ------------ **/
-  // Pestañas y Archivos
+  // ─────────────── Configuración del Workbench y Explorador ───────────────
+  "workbench.activityBar.location": "top",
   "workbench.startupEditor": "none",
   "workbench.editor.enablePreview": false,
   "workbench.editor.labelFormat": "short",
@@ -81,15 +83,17 @@
   "workbench.tree.indent": 18,
   "workbench.tree.renderIndentGuides": "none",
 
-  /** ------------ Configuración Explorador ------------ **/
-  "explorer.sortOrder": "default",
+  // Explorador
+  "explorer.sortOrder": "foldersNestsFiles",
   "explorer.autoReveal": false,
   "explorer.confirmDelete": false,
+  "explorer.fileNesting.enabled": true,
 
-  /** ------------ Configuración Terminal ------------ **/
+  // ─────────────────────────────── Terminal ───────────────────────────────
   // Configuración General
   "terminal.integrated.defaultProfile.windows": "PowerShell",
   "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "terminal.integrated.suggest.enabled": true,
 
   // Fonts
   "terminal.integrated.fontFamily": "Iosevka Nerd Font",
@@ -101,34 +105,31 @@
   "terminal.integrated.cursorStyle": "block",
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.sendKeybindingsToShell": true,
+  "terminal.integrated.tabs.focusMode": "singleClick",
 
   // Interacción y Scroll
   "terminal.integrated.mouseWheelZoom": true,
   "terminal.integrated.smoothScrolling": true,
   "terminal.integrated.stickyScroll.enabled": true,
+  "terminal.integrated.shellIntegration.decorationsEnabled": "never",
 
-  /** ------------ Configuración Navegación ------------ **/
+  // ───────────────────────── Navegación y Editor ─────────────────────────
   "breadcrumbs.enabled": false,
-  "breadcrumbs.symbolPath": "on",
-  "breadcrumbs.filePath": "off",
 
-  /** ------------ Configuración IntelliSense y Snippets ------------ **/
-  "editor.suggestSelection": "recentlyUsedByPrefix",
-  "editor.quickSuggestions": {
-    "other": true,
-    "strings": true
-  },
-  "editor.snippetSuggestions": "top",
-
+  // ──────────────────────────── IntelliSense ────────────────────────────
   "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "editor.acceptSuggestionOnEnter": "smart",
 
-  /** ------------ Configuración Lenguajes Específicos ------------ **/
+  // ───────────────────────── Lenguajes Específicos ─────────────────────────
   "[c]": {
-    "editor.defaultFormatter": "ms-vscode.cpptools",
-    "editor.formatOnSave": true,
-    "editor.tabSize": 4
+    "editor.defaultFormatter": "xaver.clang-format",
+    "editor.tabSize": 4,
+    "editor.formatOnSave": true
+  },
+  "[cpp]": {
+    "editor.defaultFormatter": "xaver.clang-format",
+    "editor.tabSize": 4,
+    "editor.formatOnSave": true
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -149,30 +150,26 @@
     "editor.defaultFormatter": "inferrinizzard.prettier-sql-vscode",
     "editor.tabSize": 2
   },
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  },
 
-  /** ------------ Configuración Extensiones ------------ **/
+  // ────────────────────────────── Extensiones ─────────────────────────────
   "extensions.ignoreRecommendations": true,
-  "extensions.autoUpdate": false,
 
-  /** ------------ Configuración Prettier ------------ **/
+  // ─────────────────────────────── Prettier ───────────────────────────────
   "prettier.singleQuote": true,
   "prettier.semi": false,
   // "prettier.printWidth": 100,
   "prettier.jsxSingleQuote": true,
   "prettier.vueIndentScriptAndStyle": true,
 
-  /** ------------ Configuración Live Server ------------ **/
+  // ────────────────────────────── Live Server ─────────────────────────────
   "liveServer.settings.donotShowInfoMsg": true,
   "liveServer.settings.port": 6969,
   "liveServer.settings.CustomBrowser": "chrome",
 
-  /** ------------ Configuración Custom CSS and JS Loader ------------ **/
-  "vscode_custom_css.imports": [
-    "file:///C:/Users/Pieers/Documents/custom.css"
-    // "file:///C:/Users/Pieers/Documents/custom.js"
-  ],
-
-  /** ------------ Configuración Emmet ------------ **/
+  // ──────────────────────────────── Emmet ────────────────────────────────
   "emmet.showExpandedAbbreviation": "always",
   "emmet.triggerExpansionOnTab": true,
   "emmet.includeLanguages": {
@@ -184,7 +181,7 @@
     "javascript": "jsx"
   },
 
-  /** ------------ Configuración ESlint ------------ **/
+  // ──────────────────────────────── ESLint ───────────────────────────────
   "eslint.format.enable": true,
   "eslint.options": {
     "extensions": [".js", ".jsx", ".ts", ".tsx"]
@@ -196,41 +193,97 @@
     "typescript",
     "typescriptreact"
   ],
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "always",
-    "source.fixAll.stylelint": "always",
-    "source.organizeImports": "always"
-  },
 
-  /** ------------ Configuración Tailwind CSS IntelliSense ------------ **/
+  // ───────────────────────────── Tailwind CSS ─────────────────────────────
   "tailwindCSS.emmetCompletions": true,
   "tailwindCSS.includeLanguages": {
     "javascript": "html",
     "typescript": "html"
   },
 
-  /** ------------ Configuración Edamagit ------------ **/
+  // ─────────────────────────────── Edamagit ───────────────────────────────
   "magit.display-buffer-function": "same-column",
   "magit.forge-enabled": true,
+  "magit.quick-switch-enabled": true,
 
-  /** ------------ Configuración SQLTools ------------ **/
+  // ─────────────────────────────── SQL Tools ──────────────────────────────
   "sqltools.highlightQuery": false,
 
-  /** ------------ Configuración Prettier SQL VSCode ------------ **/
+  // ─────────────────────────── Prettier SQL VSCode ─────────────────────────
   "Prettier-SQL.keywordCase": "upper",
+  "Prettier-SQL.linesBetweenQueries": 2,
   "Prettier-SQL.SQLFlavourOverride": "postgresql",
   "Prettier-SQL.tabulateAlias": true,
 
-  /** ------------ Configuración Error Lens ------------ **/
+  // ────────────────────────────── Error Lens ──────────────────────────────
   "errorLens.messageBackgroundMode": "message",
   "errorLens.fontWeight": "800",
   "errorLens.fontStyleItalic": true,
   "errorLens.gutterIconSet": "borderless",
   "errorLens.gutterIconsEnabled": true,
 
-  /** ------------ Configuración Awesome Emacs keymap ------------ **/
-  "emacs-mcx.emacsLikeTab": true,
+  // ───────────────────────────── Awesome Emacs ─────────────────────────────
+  // "emacs-mcx.emacsLikeTab": true,
   "emacs-mcx.useMetaPrefixEscape": true,
   "emacs-mcx.killWholeLine": true,
-  "emacs-mcx.lineMoveVisual": true
+  "emacs-mcx.lineMoveVisual": true,
+  "emacs-mcx.enableOverridingTypeCommand": false,
+
+  // ───────────────────────────── GitHub Copilot ─────────────────────────────
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
+  },
+
+  // ───────────────────────────────── Git ──────────────────────────────────
+  "git.openRepositoryInParentFolders": "always",
+  "git.autofetch": true,
+
+  // ─────────────────────────────── Import Cost ─────────────────────────────
+  "importCost.fontStyle": "italic",
+  "importCost.smallPackageSize": 5000,
+  "importCost.bundleSizeColoring": "compressed",
+
+  // ─────────────────────────────── Auto Import ─────────────────────────────
+  "autoimport.useSemiColon": false,
+
+  // ──────────────────────────────── Standard ───────────────────────────────
+  "standard.autoFixOnSave": true,
+  "standard.usePackageJson": true,
+  "standard.enableGlobally": true,
+  "standard.treatErrorsAsWarnings": true,
+
+  // ─────────────────────────────── SVG Preview ─────────────────────────────
+  "svgPreview.autoOpen": false,
+
+  // ─────────────────────────────── Markdown ───────────────────────────────
+  "markdown-preview-enhanced.previewTheme": "one-dark.css",
+  "markdown.preview.breaks": true,
+
+  // ─────────────────────────────── CodeSnap ───────────────────────────────
+  "codesnap.containerPadding": "0em",
+
+  // ──────────────────────────────── C/C++ ─────────────────────────────────
+  "C_Cpp.loggingLevel": "Warning",
+  "C_Cpp.formatting": "clangFormat",
+  "C_Cpp.autocompleteAddParentheses": true,
+  "C_Cpp.default.cStandard": "c17",
+  "C_Cpp.default.cppStandard": "c++23",
+  "C_Cpp.intelliSenseEngine": "disabled",
+
+  // ─────────────────────────────── Clang-Format ────────────────────────────
+  "clang-format.executable": "C:\\llvm-mingw\\bin\\clang-format.exe",
+  "clang-format.style": "{ BasedOnStyle: LLVM, IndentWidth: 4, BreakBeforeBraces: Linux, PointerAlignment: Right, ColumnLimit: 0, AllowShortIfStatementsOnASingleLine: false, NamespaceIndentation: All, IndentCaseLabels: true }",
+
+  // ─────────────────────────────── Code Runner ─────────────────────────────
+  "code-runner.runInTerminal": true,
+  "code-runner.clearPreviousOutput": true,
+  "code-runner.executorMap": {
+    "c": "clang -std=c17 -Wall -Wextra -o $fileNameWithoutExt $fileName ; ./$fileNameWithoutExt",
+    "cpp": "clang++ -std=c++23 -Wall -Wextra -o main $fileName ; ./main"
+  },
+  "clang.executable": "clang",
+  "clang.cflags": ["-std=c++23", "-Wall"]
 }

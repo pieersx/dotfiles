@@ -16,8 +16,14 @@ style = "bold bright-cyan"
 
 [c]
 symbol = " "
+style = "bold bright-purple"
 format = 'via [$symbol($version(-$name) )]($style)'
-# commands = [ [ 'gcc', '--version' ] ]
+
+[cpp]
+symbol = " "
+style = "bold bright-purple"
+format = 'via [$symbol($version(-$name) )]($style)'
+disabled = false
 
 [cmake]
 symbol = " "

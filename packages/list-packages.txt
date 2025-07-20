@@ -1,0 +1,43 @@
+// Winget
+7-Zip
+Advanced SystemCare
+Brave
+Discord
+Driver Booster
+Fastfetch
+Fast Node Manager
+Flameshot
+FxSound
+Fzf
+Git
+Google Chrome
+PostgreSQL 17
+PowerShell
+Python
+Revo Uninstaller
+RGB Fusion
+Starship
+Steam
+TranslucentTB
+UniGetUI
+Warp
+Wget - ID: JernejSimoncic.Wget
+Xournal++
+Visual Studio Code
+
+// Microsoft Store
+Lively Wallpaper
+Microsoft PowerToys
+WhatsApp
+
+// PowerShell 7.x: PSGallery
+CompletionPredictor
+PSFzf
+PSReadLine
+Terminal Icons
+
+// PC Local
+APP Center
+
+// Chocalate: community
+Spacesniffer

@@ -1,35 +1,61 @@
-# Configuración de Starship
+# Configuración Inicial de entorno
 $ENV:STARSHIP_CONFIG = "$HOME\.config\starship\config.toml"
 $ENV:STARSHIP_CACHE = "$HOME\AppData\Local\Temp"
+$ENV:EDITOR = 'code'
+$ENV:NODE_ENV = 'development'
+
+# Configuración de Starship
 Invoke-Expression (&starship init powershell)
 
-# Importa módulos
-Import-Module -Name Posh-Git
-Import-Module -Name Terminal-Icons
-Import-Module PSReadLine
+# fnm Node.js
+fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression
 
-# Configuración de Oh My Posh
-# oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\the-unnamed.omp.json" | Invoke-Expression
+# Importar Módulos
+Import-Module -Name PSReadLine
+Import-Module -Name PSFzf
+Import-Module -Name Terminal-Icons
+Import-Module -Name CompletionPredictor
+Import-Module -Name z
 
 # Configuración de PSReadLine
-Set-PSReadLineOption -Colors @{ InlinePrediction = '#8a8a8a' }
-Set-PSReadLineOption -PredictionViewStyle ListView
-Set-PSReadLineOption -PredictionSource History
-Set-PSReadLineOption -HistoryNoDuplicates
 Set-PSReadLineOption -EditMode Emacs
+Set-PSReadLineOption -PredictionSource HistoryAndPlugin
+Set-PSReadLineOption -PredictionViewStyle ListView
+Set-PSReadLineOption -HistoryNoDuplicates
 
-# Enable-TransientPrompt
+# Configuración de PSFzf
+Set-PsFzfOption `
+  -PSReadlineChordProvider 'Ctrl+t' `
+  -PSReadlineChordReverseHistory 'Ctrl+r' `
+  -AltCCommand { param($Location) Set-Location $Location } `
+  -EnableAliasEdit `
+  -EnableAliasGitStatus `
+  -EnableAliasKill `
+  -EnableAliasZLocation
+
+Set-PsFzfOption -TabExpansion
+
+# Commpletado para winget
+Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
+    param($wordToComplete, $commandAst, $cursorPosition)
+    [Console]::InputEncoding = [Console]::OutputEncoding = $OutputEncoding = [System.Text.Utf8Encoding]::new()
+    $Local:word = $wordToComplete.Replace('"', '""')
+    $Local:ast = $commandAst.ToString().Replace('"', '""')
+    winget complete --word="$Local:word" --commandline "$Local:ast" --position $cursorPosition | ForEach-Object {
+        [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+    }
+}
 
 # Alias útiles para desarrolladores
 function ll { ls -Force }
 function gs { git status }
 function gc { git commit }
 function gp { git push }
+function gl { git pull }
 
-# Estilo de la terminal (colores y fuentes)
-$host.UI.RawUI.BackgroundColor = "Black"
-$host.UI.RawUI.ForegroundColor = "White"
+# Utilidades
+function touch { New-Item -ItemType File -Name $args[0] }
+function which { Get-Command -Name $args[0] -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Path }
+
+# Configuración de la terminal
 Clear-Host
-
-# Mensaje de bienvenida
-# Write-Host "👨‍💻 Bienvenido a tu terminal, desarrollador!" -ForegroundColor Cyan
