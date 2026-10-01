@@ -1,93 +1,121 @@
-# Powerlevel10k Instant Prompt Initialization
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# ============================================================
+#  ~/.zshrc — Oh My Zsh + Starship + mise + fzf + zoxide + atuin
+# ============================================================
 
-# Main variables
-export main_home="$HOME"
-
-# Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
-# Powerlevel10k Theme Configuration
-# ZSH_THEME="simple"
+ZSH_THEME=""
 
-# Plugins for zsh
+# Recordar actualizaciones de omz sin auto-actualizar
+zstyle ':omz:update' mode reminder
+zstyle ':omz:update' frequency 7
+
+# --- Plugins ---------------------------------------------------
+# Orden: syntax-highlighting debe ir después de autosuggestions y
+# antes de history-substring-search (este se engancha a aquel).
 plugins=(
   git
+  sudo              # Esc Esc -> anteponer sudo al comando actual
+  extract           # x <archivo.zip|tar.gz|...> extrae cualquier formato
+  dirhistory        # Alt+←/→ sube/baja en la historia de directorios
   zsh-autosuggestions
   zsh-syntax-highlighting
   zsh-history-substring-search
   zsh-completions
-  zsh-autocomplete
 )
 
-# Source Oh My Zsh
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
-# Load Powerlevel10k configuration
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# --- Historial robusto ----------------------------------------
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=100000
+SAVEHIST=100000
+setopt EXTENDED_HISTORY          # timestamp en cada entrada
+setopt INC_APPEND_HISTORY        # escribe inmediatamente (no al salir)
+setopt SHARE_HISTORY             # compartido entre sesiones simultáneas
+setopt HIST_IGNORE_DUPS          # no duplicar consecutivos
+setopt HIST_IGNORE_SPACE         # ' cmd' queda fuera del historial
+setopt HIST_REDUCE_BLANKS
+setopt HIST_VERIFY               # !! muestra el comando antes de ejecutar
+setopt HIST_FIND_NO_DUPS
 
-# PATH Configuration
-paths=(
-  /usr/local/bin
-  /usr/local/share/rofi-emoji
-  $main_home/.local/share/fnm
+# --- Navegación -----------------------------------------------
+setopt AUTO_CD                   # 'dev' -> cd dev
+setopt AUTO_PUSHD PUSHD_IGNORE_DUPS PUSHD_SILENT   # cd deja pila, 'cd -' / 'popd'
+setopt CORRECT                   # corrige typos: 'apt udpate' -> 'apt update'?
+setopt INTERACTIVE_COMMENTS      # # comenta en la línea de comandos
+unsetopt FLOW_CONTROL            # libera Ctrl+S / Ctrl+Q
+setopt NO_BEEP
+
+# --- PATH (sin duplicados) -------------------------------------
+typeset -U path fpath
+path=(
+  "$HOME/.local/bin"
+  "$HOME/.atuin/bin"
+  "$HOME/.cargo/bin"
+  "$HOME/.nimble/bin"
+  "$HOME/.opencode/bin"
+  $path
 )
+export PATH
 
-# Add paths to the global PATH
-for p in $paths; do
-  export PATH="$p:$PATH"
-done
+# --- Editor ----------------------------------------------------
+export EDITOR="micro"                       # terminal (instalado)
+export VISUAL="code --wait"                 # GUI; git usa VISUAL/EDITOR
+export TERMINAL="kitty"
 
-# FNM Configuration
-FNM_PATH="/home/pieers/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="/home/pieers/.local/share/fnm:$PATH"
-  eval "`fnm env`"
-  eval "`fnm completions --shell zsh`"
+# --- Modern CLI tools ------------------------------------------
+# fd (fd-find en Debian)
+if (( $+commands[fdfind] )); then
+  alias fd='fdfind'
 fi
 
-# Aliases
-eval "$(dircolors -b)"
-alias ll='ls -lah --color=auto'
-alias config-edit="code ~/.zshrc"
-alias reload-zsh="source ~/.zshrc"
-alias edit-i3="code ~/.config/i3/config"
+# bat (batcat en Debian)
+if (( $+commands[batcat] )); then
+  alias cat='batcat --paging=never'
+  export BAT_THEME="Visual Studio Dark+"
+elif (( $+commands[bat] )); then
+  alias cat='bat --paging=never'
+fi
 
-# Zsh Auto-Suggestions Configuration
-# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=cyan"
+# eza
+if (( $+commands[eza] )); then
+  alias ls='eza --group-directories-first'
+  alias ll='eza -la --git --icons --group-directories-first'
+  alias lt='eza --tree --level=2 --git-ignore'
+fi
 
-# Zsh Syntax Highlighting Configuration
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(
-  main
-  brackets
-  pattern
-)
+# Aliases de uso general
+alias ..='cd ..'
+alias ...='cd ../..'
+alias reload='source ~/.zshrc'
+alias zshconfig='${VISUAL:-code} ~/.zshrc'
+alias update='sudo apt update && sudo apt upgrade'
+alias ports='ss -tulpn'
 
-# Optional Settings
-HISTFILE="$HOME/.zsh_history"
-HISTSIZE=10000
-SAVEHIST=10000
-HIST_STAMPS="yyyy-mm-dd"
+# --- fzf (Ctrl+T archivos, Alt+C directorios) -------------------
+# Ctrl-R lo maneja atuin (se inicializa después y gana la tecla)
+export FZF_DEFAULT_OPTS='--exact --height=60% --layout=reverse --info=inline --border=rounded'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="--preview 'batcat -n --color=always --line-range :200 {} 2>/dev/null || bat -n --color=always --line-range :200 {}'"
 
-# Corrección y autocompletado
-# ENABLE_CORRECTION="true"
-# COMPLETION_WAITING_DOTS="true"
+for _fzf in \
+  /usr/share/doc/fzf/examples/key-bindings.zsh \
+  /usr/share/doc/fzf/examples/completion.zsh; do
+  [[ -f $_fzf ]] && source $_fzf
+done
+unset _fzf
 
-# Editor Configuration
-export EDITOR="code"
+# --- zoxide (z <fragmento> salta a directorios frecuentes) -----
+(( $+commands[zoxide] )) && eval "$(zoxide init zsh)"
 
-# Customization for i3wm Environment
-export TERMINAL="kitty"
-alias terminal="$TERMINAL"
+# --- atuin (historial cifrado, Ctrl-R con búsqueda difusa) -----
+if [[ -x "$HOME/.atuin/bin/atuin" ]]; then
+  eval "$("$HOME/.atuin/bin/atuin" init zsh)"
+fi
 
-# Oh My Zsh Updates
-zstyle ':omz:update' mode reminder   # Remind to update Oh My Zsh
-zstyle ':omz:update' frequency 7   # Check for updates every 13 days
-
-# Starship Prompt Initialization
+# --- Prompt y runtimes -----------------------------------------
 eval "$(starship init zsh)"
-
-# Enhancements for Starship
-export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+eval "$(mise activate zsh)"
